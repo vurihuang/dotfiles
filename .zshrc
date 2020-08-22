@@ -99,7 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.privaterc
+if [ -f "~/.privaterc" ]; then
+  source ~/.privaterc
+fi
 
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -116,10 +118,10 @@ antigen apply
 # aliases
 alias gd='git diff'
 alias gdiff='git icdiff'
+alias consuld="nohup consul agent --dev &"
 
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-alias consuld="nohup consul agent --dev &"
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export PATH=$PATH:$HOME/.pub-cache/bin
