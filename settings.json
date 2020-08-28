@@ -1,0 +1,68 @@
+{
+    "editor.fontSize": 18,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.editor.enablePreview": false,
+    "window.zoomLevel": 1,
+    "go.formatTool": "goimports",
+    "workbench.colorTheme": "Monokai",
+    "debug.console.fontSize": 14,
+    "debug.toolBarLocation": "docked",
+    "editor.minimap.enabled": false,
+    "files.exclude": {
+        "**/.idea": true,
+        "**/dart": true,
+        "**/js": true,
+        "**/py": true
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.wordWrapColumn": 120,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#505050"
+    },
+    "explorer.autoReveal": false
+}
