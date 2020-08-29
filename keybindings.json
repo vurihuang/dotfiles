@@ -63,5 +63,29 @@
     {
         "key": "ctrl+w ctrl+s",
         "command": "workbench.files.action.showActiveFileInExplorer"
+    },
+    {
+        "key": "f3",
+        "command": "references-view.find",
+        "when": "editorHasReferenceProvider"
+    },
+    {
+        "key": "shift+alt+f12",
+        "command": "-references-view.find",
+        "when": "editorHasReferenceProvider"
+    },
+    {
+        "key": "f3",
+        "command": "-editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-editor.action.transposeLetters",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "f3",
+        "command": "references-view.find"
     }
 ]

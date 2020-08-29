@@ -64,5 +64,15 @@
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#505050"
     },
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "leetcode.endpoint": "leetcode-cn",
+    "leetcode.workspaceFolder": "/Users/vuri/.leetcode",
+    "leetcode.defaultLanguage": "golang",
+    "leetcode.hint.configWebviewMarkdown": false,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontSize": 14,
+    "[markdown]": {
+        "editor.defaultFormatter": "AnmolSinghJaggi.vscode-markdownfmt"
+    },
+    "workbench.editor.closeEmptyGroups": false
 }
