@@ -125,3 +125,11 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export PATH=$PATH:$HOME/.pub-cache/bin
+
+# lazyload to speedup terminal loading.
+function nvm_enable () {
+  export NVM_DIR="$HOME/.nvm"
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+}
+
