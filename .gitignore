@@ -2,3 +2,4 @@
 .idea/
 .vs_code/
 */log*.*
+.vim/bundle/*

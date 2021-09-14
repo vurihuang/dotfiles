@@ -8,3 +8,4 @@ noremap g/ <ESC>:action FindInPath<CR>
 
 set visualbell
 set noerrorbells
+set guicursor+=n-v-c:blinkon0
