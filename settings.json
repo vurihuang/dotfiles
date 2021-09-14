@@ -1,21 +1,23 @@
 {
-    "editor.fontSize": 18,
+    "editor.fontSize": 22,
+    "editor.fontFamily": "'UbuntuMonoDerivativePowerline Nerd Font', 'Consolas', 'Hack', 'Consolas NF', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "normal",
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
+    /*"vim.insertModeKeyBindings": [
         {
             "before": [
                 "j",
-                "j"
+                "k"
             ],
             "after": [
                 "<Esc>"
             ]
         }
-    ],
+    ],*/
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -41,21 +43,19 @@
         "<C-a>": false,
         "<C-f>": false
     },
-    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
     "workbench.editor.enablePreview": false,
-    "window.zoomLevel": 1,
     "go.formatTool": "goimports",
-    "workbench.colorTheme": "Monokai",
     "debug.console.fontSize": 14,
     "debug.toolBarLocation": "docked",
     "editor.minimap.enabled": false,
     "files.exclude": {
         "**/.idea": true,
         "**/dart": true,
-        "**/js": true,
-        "**/py": true
+        "**/js": false,
+        "**/node_modules": true,
+        "**/py": true,
     },
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "editor.wordWrapColumn": 120,
     "editor.rulers": [
         80,
@@ -70,9 +70,54 @@
     "leetcode.defaultLanguage": "golang",
     "leetcode.hint.configWebviewMarkdown": false,
     "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 15,
     "[markdown]": {
         "editor.defaultFormatter": "AnmolSinghJaggi.vscode-markdownfmt"
     },
-    "workbench.editor.closeEmptyGroups": false
+    "workbench.editor.closeEmptyGroups": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "off",
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[vue]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "go.testFlags": [
+        "-v"
+    ],
+    "protoc": {
+        "options":[
+            "--proto_path=/Users/vuri/go/src"
+        ]
+    },
+    "go.useLanguageServer": true,
+    "[proto3]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": true
+    },
+    "workbench.sideBar.location": "left",
+    "workbench.activityBar.visible": true,
+    "editor.renderControlCharacters": false,
+    "workbench.colorTheme": "Xcode 12 Default Dark",
+    "powermode.enabled": false,
+    "powermode.enableShake": false,
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visualline": "block",
+    "editor.cursorStyle": "block",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.editor.untitled.hint": "hidden",
+    "window.zoomLevel": 1
 }
