@@ -294,10 +294,16 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # move status line to top
-#set -g status-position top
+# set -g status-position top
 
 # using vim directions to choose pane
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -U
+
+unbind C-c
+
+# using mouse to scroll pane.
+#set-window-option -g mode-mouse on
+
