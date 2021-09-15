@@ -3,3 +3,5 @@
 .vs_code/
 */log*.*
 .vim/bundle/*
+.nvim/plugged/*
+.tmux/plugins/*

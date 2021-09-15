@@ -119,5 +119,6 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "workbench.editor.untitled.hint": "hidden",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "extensions.autoUpdate": false
 }

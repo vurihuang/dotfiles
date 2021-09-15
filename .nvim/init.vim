@@ -1,7 +1,17 @@
+" ===
+" === Autoload
+" ===
+
+if empty(glob($HOME.'/.nvim/autoload/plug.vim'))
+  silent !curl -fLo $HOME/.nvim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " set line number.
+set mouse=a
 set nu
 " be improved
-set nocompatible
 filetype on
 filetype plugin indent on
 
@@ -90,7 +100,7 @@ noremap <LEADER><CR> :nohlsearch<CR>
 " folding
 noremap <silent> <LEADER>o za
 
-" ====== 
+" ======
 " ====== Cursor movement
 " ======
 noremap W 5w
@@ -135,43 +145,38 @@ let g:indent_guides_start_level = 2
 " ===
 " === Install plugins
 " ===
+set rtp+=$HOME/.nvim
+call plug#begin('$HOME/.nvim/plugged')
 
-filetype off " vundle required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" themes
+Plug 'connorholyday/vim-snazzy'
+Plug 'davidklsn/vim-sialoquent'
+Plug 'phanviet/vim-monokai-pro'
 
-" Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidklsn/vim-sialoquent'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'phanviet/vim-monokai-pro'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'connorholyday/vim-snazzy'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ojroques/vim-scrollstatus'
+" behaviors
+Plug 'ojroques/vim-scrollstatus'
+Plug 'itchyny/lightline.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' } " displays the colours in the file async.
+Plug 'RRethy/vim-illuminate' " highlights other uses of the current words under the cursor automatically.
 
-" General highlighter
-Plugin 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plugin 'RRethy/vim-illuminate'
+" file navigation
+Plug 'pechorin/any-jump.vim'
+Plug 'psliwka/vim-smoothie'
 
-" File navigation
-Plugin 'pechorin/any-jump.vim'
-Plugin 'junegunn/fzf.vim'
+" git
+Plug 'tpope/vim-fugitive' " git plugin.
+Plug 'airblade/vim-gitgutter' " shows a git diff in the sign column.
 
-" Auto complete
+call plug#end()
 
-call vundle#end()
-
-filetype plugin indent on " vundle required
-
+set re=0 " regexpengine.
 let g:gitgutter_sign_modified = '•'
 let g:gitgutter_sign_added = '❖'
 highlight GitGutterAdd guifg = '#A3E28B'
-
 
 let g:lightline = {
   \ 'active': {
@@ -200,6 +205,7 @@ let g:lightline = {
   \ 'subseparator': { 'left': '∿', 'right': '❂' }
   \ }
 
+" colorschemes
 colorscheme snazzy
 " colorscheme monokai_pro
 " colorscheme sialoquent

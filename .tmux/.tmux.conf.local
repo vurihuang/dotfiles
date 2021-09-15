@@ -279,7 +279,7 @@ tmux_conf_copy_to_os_clipboard=true
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-set -g mouse on
+set -g mouse off
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -306,4 +306,3 @@ unbind C-c
 
 # using mouse to scroll pane.
 #set-window-option -g mode-mouse on
-
