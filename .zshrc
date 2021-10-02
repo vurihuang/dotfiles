@@ -8,7 +8,9 @@ export ZSH="/Users/vuri/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="random"
+#ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,10 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f "$HOME/.privaterc" ]; then
-  source $HOME/.privaterc
-fi
-
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
@@ -112,18 +110,27 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
+#antigen bundle jeffreytse/zsh-vi-mode
 
 antigen apply
 
-# aliases
+fpath=(~/.zsh.d/ $fpath)
+
+# ===
+# === aliases
+# ===
 alias gd='git diff'
 alias gdiff='git icdiff'
-alias consuld="nohup consul agent --dev &"
+alias consuld="nohup consul agent --dev > /dev/null &"
+alias cht='cht.sh'
+alias json='python -m json.tool'
+alias mk='minikube'
 
+export GO111MODULE=auto
+export GOPROXY=https://goproxy.cn,direct
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export PATH=$PATH:$HOME/.pub-cache/bin
 export PATH=/usr/local/opt/ncurses/bin:$PATH
 export LDFLAGS="-L/usr/local/opt/ncurses/lib"
@@ -136,3 +143,41 @@ function nvm_enable () {
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 }
 
+export PUB_HOSTED_URL=https://mirrors.tuna.tsinghua.edu.cn/dart-pub
+export PATH="/usr/local/opt/imagemagick@7/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/imagemagick@7/lib"
+export CPPFLAGS="-I/usr/local/opt/imagemagick@7/include"
+export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@7/lib/pkgconfig"
+export CGO_CFLAGS_ALLOW='-Xpreprocessor'
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+
+if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
+    alias nvim="$HOME/soft/nvim/bin/nvim"
+    alias vi='nvim'
+fi
+
+alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
+
+function enableProxy() {
+  export HTTP_PROXY=http://localhost:8123
+  export HTTPS_PROXY=$HTTP_PROXY
+  export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24
+}
+
+function disableProxy() {
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset NO_PROXY
+}
+
+enableProxy
+
+function disableGoModule() {
+    export GO111MODULE=off
+}
+
+function enableGoModule() {
+    export GO111MODULE=auto
+}
+
+[ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
