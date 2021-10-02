@@ -1,7 +1,7 @@
 # Setup
 
 ``` shell
-cd ~ && git clone git@github.com:upeoe/dotfiles.git
+cd ~ && git clone https://github.com/upeoe/dotfiles.git
 ```
 
 Putting the configuration into your `.zshrc`, `.bashrc`, etc.
@@ -11,14 +11,14 @@ Putting the configuration into your `.zshrc`, `.bashrc`, etc.
 ### Install
 
 ```
-$ ln -s ~/dotfiles/.nvim ~/.nvim
+$ mkdir ~/.config && ln -s ~/dotfiles/.nvim ~/.config/nvim
 ```
 
 ### Configure
 
 ``` shell
-alias nvim="nvim -u $HOME/.nvim/init.vim"
 if type nvim > /dev/null 2>&1; then
+  alias nvim="nvim -u $HOME/.config/nvim/init.vim"
   alias vi='nvim'
 fi
 ```
