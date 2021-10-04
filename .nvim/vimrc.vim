@@ -15,6 +15,7 @@ exec "nohlsearch"
 set incsearch
 set ignorecase
 set smartcase
+set wildignorecase
 set showcmd " show command in the last line of the screen.
 set linespace=4 " number of pixel lines inserted between characters.
 set termguicolors
@@ -53,6 +54,17 @@ set colorcolumn=120
 set updatetime=1000 " if this many millseconds nothing is typed the swap file will be written to disk.
 set virtualedit=block " the cursor can be positioned where there is no actual character.
 set clipboard+=unnamedplus
+set nobackup
+set nowritebackup
+
+" always show the signcolumn, otherwise it would shift the text
+" each time, diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " recently vim can merge signcolumn and number column into one.
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " ===
 " === Other stuff
@@ -65,3 +77,8 @@ let g:indent_guides_start_level = 2
 
 set re=0 " regexpengine.
 set laststatus=2 " this value of this option influences when the last window will have a status line, value `2` is always.
+
+" give more space for displaying messages.
+set cmdheight=2
+" don't pass messages to |ins-completion-menu|
+set shortmess+=c

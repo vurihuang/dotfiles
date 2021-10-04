@@ -13,4 +13,4 @@ source $HOME/.config/nvim/vimrc.vim
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keys.vim
 source $HOME/.config/nvim/themes.vim
-
+source $HOME/.config/nvim/filetype.vim

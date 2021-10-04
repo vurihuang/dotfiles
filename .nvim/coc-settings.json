@@ -1,0 +1,17 @@
+// vim:ft=jsonc
+{
+    "signature.floatConfig": {
+        "boarder": true,
+    },
+        "diagnostic-languageserver.filetypes": {
+        "diagnostic.hintSign": "➤",
+        "diagnostic.infoSign": "ℹ"
+    },
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "filetypes": ["go"]
+        }
+    }
+}

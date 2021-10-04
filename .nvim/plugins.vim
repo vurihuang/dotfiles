@@ -19,6 +19,7 @@ Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' } " displays the colours
 Plug 'RRethy/vim-illuminate' " highlights other uses of the current words under the cursor automatically.
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'dhruvasagar/vim-zoom'
+Plug 'voldikss/vim-floaterm'
 
 " file navigation
 Plug 'pechorin/any-jump.vim'
@@ -27,6 +28,9 @@ Plug 'psliwka/vim-smoothie'
 " git
 Plug 'tpope/vim-fugitive' " git plugin.
 Plug 'airblade/vim-gitgutter' " shows a git diff in the sign column.
+
+" completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -90,3 +94,16 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" coc
+" highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+augroup CocGroup
+  autocmd!
+  " setup formatexpr specified filetypes.
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" floaterm
