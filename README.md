@@ -6,6 +6,17 @@ cd ~ && git clone https://github.com/upeoe/dotfiles.git
 
 Putting the configuration into your `.zshrc`, `.bashrc`, etc.
 
+## font
+
+Ref: [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+
+```
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
+# you should restart the terminal/iTerm2 to activate your nerd font at the Preferences > Profiles > Text.
+```
+
 ## nvim
 
 ### Install
