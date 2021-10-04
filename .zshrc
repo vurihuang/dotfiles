@@ -110,21 +110,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
-#antigen bundle jeffreytse/zsh-vi-mode
 
 antigen apply
 
 fpath=(~/.zsh.d/ $fpath)
-
-# ===
-# === aliases
-# ===
-alias gd='git diff'
-alias gdiff='git icdiff'
-alias consuld="nohup consul agent --dev > /dev/null &"
-alias cht='cht.sh'
-alias json='python -m json.tool'
-alias mk='minikube'
 
 export GO111MODULE=auto
 export GOPROXY=https://goproxy.cn,direct
@@ -151,13 +140,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@7/lib/pkgconfig"
 export CGO_CFLAGS_ALLOW='-Xpreprocessor'
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
-if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
-    alias nvim="$HOME/soft/nvim/bin/nvim"
-    alias vi='nvim'
-fi
-
-alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
-
 function enableProxy() {
   export HTTP_PROXY=http://localhost:8123
   export HTTPS_PROXY=$HTTP_PROXY
@@ -181,3 +163,22 @@ function enableGoModule() {
 }
 
 [ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
+
+# aliases
+alias r=ranger
+alias k=kubectl
+alias gd='git diff'
+alias gdiff='git icdiff'
+alias consuld="nohup consul agent --dev > /dev/null &"
+alias cht='cht.sh'
+alias json='python -m json.tool'
+alias mk='minikube'
+alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
+alias gdh='git diff HEAD^'
+alias lg='lazygit'
+
+if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
+    alias nvim="$HOME/soft/nvim/bin/nvim"
+    alias vi='nvim'
+fi
+
