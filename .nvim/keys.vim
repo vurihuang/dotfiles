@@ -100,10 +100,10 @@ nnoremap <silent> <leader>tn :FloatermNext<CR>
 tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNext<CR>
 nnoremap <silent> <leader>tt :FloatermToggle<CR>
 tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
-nnoremap <silent> <leader>tf :FloatermNew fzf<CR>
-nnoremap <silent> <leader>tg :FloatermNew tig<CR>
+nnoremap <silent> <leader>tf :FloatermNew --width=0.9 --height=0.8 fzf<CR>
+nnoremap <silent> <leader>tg :FloatermNew --width=0.9 --height=0.9 lazygit<CR>
 nnoremap <silent> <leader>tl :CocList floaterm<CR>
-nnoremap <silent> <leader>tr :FloatermNew ranger<CR>
+nnoremap <silent> <leader>tr :FloatermNew --width=0.9 --height=0.8 ranger<CR>
 
 let g:which_key_map = {}
 let g:which_key_map.f = {
@@ -149,4 +149,3 @@ let g:which_key_map.t = {
 
 " to register the descriptions when using the on-demandcload feature.
 autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')
-

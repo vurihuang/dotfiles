@@ -1,5 +1,8 @@
 // vim:ft=jsonc
 {
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "git.addGBlameToVirtualText": true,
     "signature.floatConfig": {
         "boarder": true,
     },
@@ -8,10 +11,22 @@
         "diagnostic.infoSign": "ℹ"
     },
     "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod"],
             "filetypes": ["go"]
         }
+    },
+    "prettier.printWidth": 160,
+    "prettier.singleQuote": true,
+    "signature.target": "echo",
+    "snippets.extends": {
+        "typescript": ["javascript"]
     }
 }

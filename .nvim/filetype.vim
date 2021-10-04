@@ -1,1 +1,2 @@
-autocmd BufNewFile,BufRead .*rc setfiletype sh
+autocmd BufNewFile,BufRead .*rc,.aliases setfiletype sh
+
