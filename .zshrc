@@ -163,22 +163,6 @@ function enableGoModule() {
 }
 
 [ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
-# aliases
-alias r=ranger
-alias k=kubectl
-alias gd='git diff'
-alias gdiff='git icdiff'
-alias consuld="nohup consul agent --dev > /dev/null &"
-alias cht='cht.sh'
-alias json='python -m json.tool'
-alias mk='minikube'
-alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
-alias gdh='git diff HEAD^'
-alias lg='lazygit'
-
-if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
-    alias nvim="$HOME/soft/nvim/bin/nvim"
-    alias vi='nvim'
-fi
-
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
