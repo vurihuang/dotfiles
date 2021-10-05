@@ -91,7 +91,7 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" floaterm mappings
+" floaterm
 nnoremap <silent> <leader>tx :FloatermNew<CR>
 tnoremap <silent> <leader>tx <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <leader>tp :FloatermPrev<CR>
@@ -105,6 +105,9 @@ nnoremap <silent> <leader>tg :FloatermNew --width=0.9 --height=0.9 lazygit<CR>
 nnoremap <silent> <leader>tl :CocList floaterm<CR>
 nnoremap <silent> <leader>tr :FloatermNew --width=0.9 --height=0.8 ranger<CR>
 
+" markdown
+nnoremap <silent> <leader>mt :RemoveToc<CR>:GenTocMarked<CR>:call ShortTierToc()<CR>
+
 let g:which_key_map = {}
 let g:which_key_map.f = {
     \ 'name': '+file',
@@ -112,7 +115,9 @@ let g:which_key_map.f = {
     \ 'k': 'keys.vim',
     \ 'p': 'plugins.vim',
     \ 's': 'save-file',
-    \ 'r': 'reload-file'
+    \ 'r': 'reload-file',
+    \ 'l': ['Files', 'files'],
+    \ 'g': ['GFiles', 'git-files']
     \ }
 
 let g:which_key_map.w = {
@@ -125,7 +130,8 @@ let g:which_key_map.w = {
     \ 'k': ['<C-w>k', 'window-up'],
     \ 'l': ['<C-w>l', 'window-right'],
     \ 'o': ['<C-w>w', 'other-window'],
-    \ 'z': ['<C-w>m', 'window-zoom']
+    \ 'z': ['<C-w>m', 'window-zoom'],
+    \ 'q': ['quit', 'quit']
     \ }
 
 let g:which_key_map.g = {
@@ -147,5 +153,29 @@ let g:which_key_map.t = {
     \ 'r': 'ranger'
     \ }
 
+let g:which_key_map.b = {
+    \ 'name': '+buffers',
+    \ 'l': ['Buffers', 'buffers'],
+    \ 's': ['BufstopPreview', 'buffer-switch'],
+    \ 'p': ['bp', 'buffer-prev'],
+    \ 'n': ['bn', 'buffer-next'],
+    \ 'd': ['bd', 'buffer-delete']
+    \ }
+
+let g:which_key_map.m = {
+    \ 'name': '+markdown',
+    \ 't': 'generate-toc',
+    \ 'u': ['UpdateToc', 'update-toc'],
+    \ 'p': ['MarkdownPreview', 'markdown-preview']
+    \ }
+
 " to register the descriptions when using the on-demandcload feature.
 autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')
+
+function ShortTierToc()
+    exe "/-toc .* -->"
+    let lstart=line('.')
+    exe "/-toc -->"
+    let lnum=line('.')
+    execute lstart.",".lnum."g/           /d"
+endfunction

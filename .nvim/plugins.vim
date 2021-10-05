@@ -7,6 +7,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'davidklsn/vim-sialoquent'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'morhetz/gruvbox'
 
 " behaviors
 Plug 'ojroques/vim-scrollstatus'
@@ -24,6 +25,9 @@ Plug 'voldikss/vim-floaterm'
 " file navigation
 Plug 'pechorin/any-jump.vim'
 Plug 'psliwka/vim-smoothie'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mihaifm/bufstop'
 
 " git
 Plug 'tpope/vim-fugitive' " git plugin.
@@ -31,6 +35,13 @@ Plug 'airblade/vim-gitgutter' " shows a git diff in the sign column.
 
 " completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -107,3 +118,9 @@ augroup CocGroup
 augroup end
 
 " floaterm
+
+" bufstop
+let g:BufstopSorting = "none"
+
+" markdown
+let g:vmt_auto_update_on_save = 0

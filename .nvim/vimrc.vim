@@ -79,6 +79,6 @@ set re=0 " regexpengine.
 set laststatus=2 " this value of this option influences when the last window will have a status line, value `2` is always.
 
 " give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 " don't pass messages to |ins-completion-menu|
 set shortmess+=c
