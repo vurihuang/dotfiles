@@ -108,6 +108,31 @@ nnoremap <silent> <leader>tr :FloatermNew --width=0.9 --height=0.8 ranger<CR>
 " markdown
 nnoremap <silent> <leader>mt :RemoveToc<CR>:GenTocMarked<CR>:call ShortTierToc()<CR>
 
+" easy align
+" around all operators with =
+xnoremap <leader>aa :EasyAlign*=<CR>
+nnoremap <leader>aa :EasyAlign*=<CR>
+" markdown table align left
+xnoremap <leader>at :EasyAlign*\|<CR>
+nnoremap <leader>at :EasyAlign*\|<CR>
+" around 1st colon
+xnoremap <leader>ac :EasyAlign:<CR>
+nnoremap <leader>ac :EasyAlign:<CR>
+" easy-align notes
+" :EasyAlign\    around 1st whitespaces
+" :EasyAlign2\   around 2nd whitespaces
+" :EasyAlign-\   around the last whitespaces
+" :EasyAlign-2\  around the 2nd to last whitespaces
+" :EasyAlign:    around 1st colon(key: value)
+" :EasyAlign:>l1 around 1st colon(key : value)
+" :EasyAlign=    around 1st operators with =
+" :EasyAlign3=   around 3rd operators with =
+" :EasyAlign*=   around all operators with =
+" :EasyAlign**=  left-right alternating around =
+" :EasyAlign!=   right alignment around 1st =
+" :EasyAlign!**= right-left alternating around =
+
+
 let g:which_key_map = {}
 let g:which_key_map.f = {
     \ 'name': '+file',
@@ -168,6 +193,13 @@ let g:which_key_map.m = {
     \ 'u': ['UpdateToc', 'update-toc'],
     \ 'p': ['MarkdownPreview', 'markdown-preview']
     \ }
+
+let g:which_key_map.a = {
+    \ 'name': '+a',
+    \ 'a': 'align-equal',
+    \ 't': 'align-table',
+    \ 'c': 'align-colon'
+    \}
 
 " to register the descriptions when using the on-demandcload feature.
 autocmd! User vim-which-key call which_key#register(' ', 'g:which_key_map')

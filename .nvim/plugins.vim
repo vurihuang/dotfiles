@@ -21,6 +21,7 @@ Plug 'RRethy/vim-illuminate' " highlights other uses of the current words under 
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'dhruvasagar/vim-zoom'
 Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/vim-easy-align'
 
 " file navigation
 Plug 'pechorin/any-jump.vim'

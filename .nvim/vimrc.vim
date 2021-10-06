@@ -82,3 +82,6 @@ set laststatus=2 " this value of this option influences when the last window wil
 set cmdheight=1
 " don't pass messages to |ins-completion-menu|
 set shortmess+=c
+
+" let block cursor everywhere
+set guicursor=n-v-c-sm:block
