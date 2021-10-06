@@ -103,8 +103,8 @@ nnoremap <LEADER>gi <Plug>(coc-implementation)
 nnoremap <LEADER>gr <Plug>(coc-references)
 
 " golang
-autocmd FileType go nnoremap <BUFFER> <LEADER>lr <Plug>(go-run)
-autocmd FileType go nnoremap <BUFFER> <LEADER>ld :GoDef<CR>
+nnoremap <LEADER>lr :GoRun<CR>
+nnoremap <LEADER>ld :GoDef<CR>
 
 " floaterm
 nnoremap <silent> <leader>ix :FloatermNew --width=0.9 --height=0.8<CR>

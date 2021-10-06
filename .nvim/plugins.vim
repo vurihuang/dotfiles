@@ -155,8 +155,3 @@ let g:go_doc_keywordprg_enabled              = 0 " disable run godoc on words un
 
 let g:godef_split = 2
 
-" which-key
-autocmd! FileType which_key
-autocmd FileType which_key set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <BUFFER> set laststatus=2 showmode ruler
-
