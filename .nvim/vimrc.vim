@@ -83,5 +83,8 @@ set cmdheight=1
 " don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
-" let block cursor everywhere
+" let block cursor everywhere.
 set guicursor=n-v-c-sm:block
+" avoid the cursor will be missing.
+set guioptions-=L
+set guioptions-=l

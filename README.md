@@ -1,7 +1,7 @@
 
 # Setup
 
-<!-- vim-markdown-toc Marked -->
+<!-- TOC Marked -->
 
 * [font](#font)
     * [Install](#install)
@@ -11,7 +11,8 @@
 * [tmux](#tmux)
     * [Install](#install)
 
-<!-- vim-markdown-toc -->
+<!-- /TOC -->
+
 ``` shell
 cd ~ && git clone https://github.com/upeoe/dotfiles.git
 ```

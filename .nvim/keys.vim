@@ -19,7 +19,7 @@ noremap <leader>fi :e $HOME/.config/nvim/vimrc.vim<CR>
 noremap <leader>fk :e $HOME/.config/nvim/keys.vim<CR>
 noremap <leader>fp :e $HOME/.config/nvim/plugins.vim<CR>
 noremap <leader>fs :w<CR>
-noremap <leader>fr :w<CR>:source %<CR>
+noremap <leader>fr :w<CR>:source $MYVIMRC<CR>
 
 nnoremap Y y$
 vnoremap Y "+y
@@ -60,6 +60,13 @@ noremap tJ :tab split<CR>
 noremap tn :-tabnext<CR>
 noremap tp :+tabnext<CR>
 
+nnoremap <LEADER>1 1gt
+nnoremap <LEADER>2 2gt
+nnoremap <LEADER>3 3gt
+nnoremap <LEADER>4 4gt
+nnoremap <LEADER>5 5gt
+nnoremap <LEADER>0 :tablast<CR>
+
 " coc mappings
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -91,22 +98,32 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+nnoremap <LEADER>gd <Plug>(coc-definition)
+nnoremap <LEADER>gi <Plug>(coc-implementation)
+nnoremap <LEADER>gr <Plug>(coc-references)
+
+" golang
+autocmd FileType go nnoremap <BUFFER> <LEADER>lr <Plug>(go-run)
+autocmd FileType go nnoremap <BUFFER> <LEADER>ld :GoDef<CR>
+
 " floaterm
-nnoremap <silent> <leader>tx :FloatermNew<CR>
-tnoremap <silent> <leader>tx <C-\><C-n>:FloatermNew<CR>
-nnoremap <silent> <leader>tp :FloatermPrev<CR>
-tnoremap <silent> <leader>tp <C-\><C-n>:FloatermPrev<CR>
-nnoremap <silent> <leader>tn :FloatermNext<CR>
-tnoremap <silent> <leader>tn <C-\><C-n>:FloatermNext<CR>
-nnoremap <silent> <leader>tt :FloatermToggle<CR>
-tnoremap <silent> <leader>tt <C-\><C-n>:FloatermToggle<CR>
-nnoremap <silent> <leader>tf :FloatermNew --width=0.9 --height=0.8 fzf<CR>
-nnoremap <silent> <leader>tg :FloatermNew --width=0.9 --height=0.9 lazygit<CR>
-nnoremap <silent> <leader>tl :CocList floaterm<CR>
-nnoremap <silent> <leader>tr :FloatermNew --width=0.9 --height=0.8 ranger<CR>
+nnoremap <silent> <leader>ix :FloatermNew --width=0.9 --height=0.8<CR>
+tnoremap <silent> <leader>ix <C-\><C-n>:FloatermNew<CR>
+nnoremap <silent> <leader>ip :FloatermPrev<CR>
+tnoremap <silent> <leader>ip <C-\><C-n>:FloatermPrev<CR>
+nnoremap <silent> <leader>in :FloatermNext<CR>
+tnoremap <silent> <leader>in <C-\><C-n>:FloatermNext<CR>
+nnoremap <silent> <leader>it :FloatermToggle<CR>
+tnoremap <silent> <leader>it <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <leader>if :FloatermNew --width=0.9 --height=0.8 fzf<CR>
+nnoremap <silent> <leader>ig :FloatermNew --width=0.9 --height=0.9 lazygit<CR>
+nnoremap <silent> <leader>il :CocList floaterm<CR>
+nnoremap <silent> <leader>ir :FloatermNew --width=0.9 --height=0.8 ranger<CR>
 
 " markdown
-nnoremap <silent> <leader>mt :RemoveToc<CR>:GenTocMarked<CR>:call ShortTierToc()<CR>
+nnoremap <leader>mt :RemoveToc<CR>:GenTocMarked<CR>:call ShortTierToc()<CR>
+nnoremap <LEADER>mu :UpdateToc<CR>
+nnoremap <LEADER>mp :MarkdownPreview<CR>
 
 " easy align
 " around all operators with =
@@ -132,8 +149,14 @@ nnoremap <leader>ac :EasyAlign:<CR>
 " :EasyAlign!=   right alignment around 1st =
 " :EasyAlign!**= right-left alternating around =
 
-
-let g:which_key_map = {}
+let g:which_key_map = {
+    \ '1': 'tab 1',
+    \ '2': 'tab 2',
+    \ '3': 'tab 3',
+    \ '4': 'tab 4',
+    \ '5': 'tab 5',
+    \ '0': 'tab last'
+    \ }
 let g:which_key_map.f = {
     \ 'name': '+file',
     \ 'i': 'vimrc.vim',
@@ -166,7 +189,13 @@ let g:which_key_map.g = {
     \ 'r': ['<Plug>(coc-references)', 'goto-references']
     \ }
 
-let g:which_key_map.t = {
+let g:which_key_map.l = {
+    \ 'name': '+lsp',
+    \ 'd': 'definition',
+    \ 'r': 'run'
+    \ }
+
+let g:which_key_map.i = {
     \ 'name': '+term',
     \ 'x': 'new-term',
     \ 't': 'toggle-term',
@@ -174,31 +203,37 @@ let g:which_key_map.t = {
     \ 'n': 'next-term',
     \ 'f': 'fzf',
     \ 'g': 'git',
-    \ 'l': 'list-term',
+    \ 'l': 'terms',
     \ 'r': 'ranger'
+    \ }
+
+let g:which_key_map.t = {
+    \ 'name': '+tabs',
+    \ 'p': ['tabprevious', 'prev-tab'],
+    \ 'n': ['tabnext', 'next-tab'],
     \ }
 
 let g:which_key_map.b = {
     \ 'name': '+buffers',
     \ 'l': ['Buffers', 'buffers'],
-    \ 's': ['BufstopPreview', 'buffer-switch'],
-    \ 'p': ['bp', 'buffer-prev'],
-    \ 'n': ['bn', 'buffer-next'],
-    \ 'd': ['bd', 'buffer-delete']
+    \ 's': ['BufstopPreview', 'switch-buffer'],
+    \ 'p': ['bp', 'prev-buffer'],
+    \ 'n': ['bn', 'next-buffer'],
+    \ 'd': ['bd', 'delete-buffer']
     \ }
 
 let g:which_key_map.m = {
     \ 'name': '+markdown',
     \ 't': 'generate-toc',
-    \ 'u': ['UpdateToc', 'update-toc'],
-    \ 'p': ['MarkdownPreview', 'markdown-preview']
+    \ 'u': 'update-toc',
+    \ 'p': 'markdown-preview'
     \ }
 
 let g:which_key_map.a = {
     \ 'name': '+a',
-    \ 'a': 'align-equal',
-    \ 't': 'align-table',
-    \ 'c': 'align-colon'
+    \ 'a': 'equal-align',
+    \ 't': 'table-align',
+    \ 'c': 'colon-align'
     \}
 
 " to register the descriptions when using the on-demandcload feature.
@@ -211,3 +246,4 @@ function ShortTierToc()
     let lnum=line('.')
     execute lstart.",".lnum."g/           /d"
 endfunction
+
