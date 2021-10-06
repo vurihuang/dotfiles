@@ -15,3 +15,4 @@ if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
     alias vi='nvim'
 fi
 
+alias ls='colorls'

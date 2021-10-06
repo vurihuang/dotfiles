@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -101,19 +108,43 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $(brew --prefix)/share/antigen/antigen.zsh
-antigen use oh-my-zsh
+# zsh settings.
+DISABLE_MAGIC_FUNCTIONS="true"
 
-antigen bundle git
-antigen bundle z
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+export ZPLUG_HOME="$HOME/.zplug"
+if [[ ! -d "$ZPLUG_HOME" ]]; then
+    git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+if [[ -d "${ZPLUG_HOME}" ]]; then
+    source "${ZPLUG_HOME}/init.zsh"
+fi
 
-antigen apply
+# if got zsh compinit insure directories message, then you should run:
+# sudo chown -R 755 /usr/local/share/zsh
+# sudo chown -R $(whoami):staff /usr/local/share/zsh
 
-fpath=(~/.zsh.d/ $fpath)
+# plugs
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'plugins/git', from:oh-my-zsh, if:'which git'
+zplug 'agkozak/zsh-z'
+zplug 'romkatv/powerlevel10k', use:powerlevel10k.zsh-theme
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-completions', defer:2
+zplug 'zsh-users/zsh-history-substring-search'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'gretzky/auto-color-ls', defer:2
+
+# sindresorhus/pure
+
+if ! zplug check; then
+    zplug install
+fi
+zplug load
+
+# define and load own shell function in zsh.
+if [[ -d "$HOME/.zsh.d" ]]; then
+    fpath=(~/.zsh.d/ $fpath)
+fi
 
 export GO111MODULE=auto
 export GOPROXY=https://goproxy.cn,direct
@@ -166,3 +197,8 @@ function enableGoModule() {
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# should install ruby preferably.
+[[ -f "$(gem which colorls)" ]] && source $(dirname $(gem which colorls))/tab_complete.sh
