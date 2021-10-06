@@ -114,6 +114,11 @@ DISABLE_MAGIC_FUNCTIONS="true"
 export ZPLUG_HOME="$HOME/.zplug"
 if [[ ! -d "$ZPLUG_HOME" ]]; then
     git clone https://github.com/zplug/zplug $ZPLUG_HOME
+    if [[ $? != 0 ]]; then
+        function zplug() {
+            return 1
+        }
+    fi
 fi
 if [[ -d "${ZPLUG_HOME}" ]]; then
     source "${ZPLUG_HOME}/init.zsh"
@@ -171,6 +176,29 @@ export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@7/lib/pkgconfig"
 export CGO_CFLAGS_ALLOW='-Xpreprocessor'
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
+[ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# should install ruby preferably.
+[[ -f "$(gem which colorls)" ]] && source $(dirname $(gem which colorls))/tab_complete.sh
+
+# Open vscode from terminal
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+}
+
 function enableProxy() {
   export HTTP_PROXY=http://localhost:8123
   export HTTPS_PROXY=$HTTP_PROXY
@@ -183,8 +211,6 @@ function disableProxy() {
     unset NO_PROXY
 }
 
-enableProxy
-
 function disableGoModule() {
     export GO111MODULE=off
 }
@@ -193,12 +219,5 @@ function enableGoModule() {
     export GO111MODULE=auto
 }
 
-[ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
-
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# should install ruby preferably.
-[[ -f "$(gem which colorls)" ]] && source $(dirname $(gem which colorls))/tab_complete.sh
+enableProxy
+eval $(thefuck --alias)
