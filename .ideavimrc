@@ -1,11 +1,19 @@
 let mapleader=' '
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set showmode
-set ignorecase smartcase
-
-noremap <leader>o <ESC>:action ShowFilePath<CR>
-noremap g/ <ESC>:action FindInPath<CR>
+set ignorecase
+set smartcase
+set incsearch
 
 set visualbell
 set noerrorbells
 set guicursor+=n-v-c:blinkon0
+set notimeout
+set timeoutlen=5000
+
+" key mappings.
+
+noremap <leader>o <ESC>:action ShowFilePath<CR>
+noremap g/ <ESC>:action FindInPath<CR>
+nnoremap ; :
+

@@ -137,7 +137,6 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug 'gretzky/auto-color-ls', defer:2
 
 # sindresorhus/pure
 
@@ -176,17 +175,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@7/lib/pkgconfig"
 export CGO_CFLAGS_ALLOW='-Xpreprocessor'
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
-[ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
-
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# should install ruby preferably.
-[[ -f "$(gem which colorls)" ]] && source $(dirname $(gem which colorls))/tab_complete.sh
-
 # Open vscode from terminal
 function code {
     if [[ $# = 0 ]]
@@ -221,3 +209,14 @@ function enableGoModule() {
 
 enableProxy
 eval $(thefuck --alias)
+
+[ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Proxy daemon
+[[ $(ps -ef | grep polipo | grep -v "grep" | wc -l) -eq 0 ]] && proxyd
