@@ -8,6 +8,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " Plug 'dhruvasagar/vim-table-mode'
 " Plug 'dkarter/bullets.vim'
 " Plug 'jceb/vim-orgmode'
+" Plug 'beauwilliams/focus.nvim'
 
 " themes
 Plug 'connorholyday/vim-snazzy'
