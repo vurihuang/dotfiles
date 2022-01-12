@@ -75,6 +75,7 @@ return packer.startup(function(use)
   use 'junegunn/fzf.vim'
   -- use 'karb94/neoscroll.nvim' -- smooth scrolling.
   use 'kyazdani42/nvim-tree.lua'
+  use 'easymotion/vim-easymotion'
 
   use {
     'nvim-telescope/telescope.nvim',

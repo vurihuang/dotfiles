@@ -34,3 +34,8 @@ keymap('n', '<f4>', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
 -- scroll
 keymap('n', '<C-u>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<cr>', opts)
 keymap('n', '<C-d>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<cr>', opts)
+
+-- comment
+keymap('x', "<leader>/", '<Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+keymap('n', "<leader>/", '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', opts)
+

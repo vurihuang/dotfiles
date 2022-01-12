@@ -120,6 +120,7 @@ local mappings = {
     r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
     l = { '<cmd>GFiles<cr>', 'Git files' },
+    w = { '<Plug>(easymotion-w)', 'Word' },
   },
 
   i = {
@@ -201,20 +202,20 @@ local mappings = {
 
   [','] = {
     name = 'Preferences',
-    k = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/keymaps.lua<cr>', 'Open keymaps' },
-    p = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/plugins.lua<cr>', 'Open plugins' },
-    w = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/whichkey.lua<cr>', 'Open whichkey' },
-    i = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
-    o = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
-    r = { '<cmd>Reload<cr>', 'Reload' },
-  }
+    k    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/keymaps.lua<cr>', 'Open keymaps' },
+    p    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/plugins.lua<cr>', 'Open plugins' },
+    w    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/whichkey.lua<cr>', 'Open whichkey' },
+    i    = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
+    o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
+    r    = { '<cmd>Reload<cr>', 'Reload' },
+  },
 }
 
 
 local x_mappings = {
-  a = {
+  a       = {
     name  = 'Align',
-    ['='] = { "<cmd>'<,'>EasyAlign*=<cr>", 'Align with =' }
+    ['='] = { "<esc><cmd>'<,'>EasyAlign*=<cr>", 'Align with =' }
   },
 }
 
@@ -233,23 +234,23 @@ local v_opts = {}
 local t_mappings = {
   i = {
     name = 'Term',
-    p = { '<cmd>FloatermPrev<cr>', 'Term previous' },
-    n = { '<cmd>FloatermNext<cr>', 'Term next' },
-    t = { '<cmd>FloatermToggle<cr>', 'Term toggle' },
+    p    = { '<cmd>FloatermPrev<cr>', 'Term previous' },
+    n    = { '<cmd>FloatermNext<cr>', 'Term next' },
+    t    = { '<cmd>FloatermToggle<cr>', 'Term toggle' },
   }
 }
 
 local t_opts = {
-  mode = 't',
-  prefix = '<leader>',
-  buffer = nil,
-  silent = true,
+  mode    = 't',
+  prefix  = '<leader>',
+  buffer  = nil,
+  silent  = true,
   noremap = true,
-  nowait = true,
+  nowait  = true,
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(v_mappings, v_opts)
--- which_key.register(x_mappings, x_opts)
+which_key.register(x_mappings, x_opts)
 which_key.register(t_mappings, t_opts)
