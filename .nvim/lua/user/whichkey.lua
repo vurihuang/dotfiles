@@ -101,10 +101,16 @@ local mappings = {
     s = { '<cmd>BufstopPreview', 'Buffer switch' },
   },
 
+  c = {
+    name = 'Code',
+    f = { 'za', 'Code fold' },
+  },
+
   f = {
     name = 'File',
     s = { '<cmd>w<cr>', 'File save' },
     l = { '<cmd>Files<cr>', 'File list' },
+    r = { '<cmd>Clap history<cr>', 'File recently' },
   },
 
   g = {
@@ -113,6 +119,7 @@ local mappings = {
     h = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
     r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
+    l = { '<cmd>GFiles<cr>', 'Git files' },
   },
 
   i = {
@@ -164,15 +171,21 @@ local mappings = {
   },
 
   w = {
-    name  = 'Window',
-    ['-'] = { '<c-w>s', 'Window split below' },
-    ['|'] = { '<c-w>v', 'Window split right' },
-    d     = { '<c-w>c', 'Window delete' },
-    h     = { '<c-w>h', 'Window left' },
-    j     = { '<c-w>j', 'Window below' },
-    k     = { '<c-w>k', 'Window up' },
-    l     = { '<c-w>l', 'Window right' },
-    q     = { 'quit', 'Window quit' },
+    name      = 'Window',
+    ['-']     = { '<c-w>s', 'Window split below' },
+    ['|']     = { '<c-w>v', 'Window split right' },
+    d         = { '<c-w>c', 'Window delete' },
+    h         = { '<c-w>h', 'Window left' },
+    j         = { '<c-w>j', 'Window below' },
+    k         = { '<c-w>k', 'Window up' },
+    l         = { '<c-w>l', 'Window right' },
+    q         = { '<cmd>quit<cr>', 'Window quit' },
+    o         = { '<c-w>w', 'Window switch' },
+    z         = { '<cmd>call zoom#toggle()<cr>', 'Window zoom' },
+    ['up']    = { '<c-w>+', 'Increase to up' },
+    ['down']  = { '<c-w>-', 'Increase to down' },
+    ['left']  = { "<c-w>\\>", 'Increase to left' },
+    ['right'] = { "<c-w>\\<", 'Increase to right' },
   },
 
   [','] = {

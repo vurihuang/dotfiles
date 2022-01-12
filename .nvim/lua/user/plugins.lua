@@ -47,13 +47,22 @@ return packer.startup(function(use)
   -- git plugins
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter' -- shows a git diff in the sign column.
+  use 'lewis6991/gitsigns.nvim'
 
   -- style
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
   use 'kien/rainbow_parentheses.vim'
   use 'nathanaelkane/vim-indent-guides'
   use 'ojroques/vim-scrollstatus'
+  use 'glepnir/galaxyline.nvim' -- statusline
+  use 'kyazdani42/nvim-web-devicons'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'dhruvasagar/vim-zoom'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
 
   -- navigation
   use 'pechorin/any-jump.vim'
@@ -64,7 +73,7 @@ return packer.startup(function(use)
     run = vim.fn['fzf#install()']
   }
   use 'junegunn/fzf.vim'
-  use 'karb94/neoscroll.nvim'
+  -- use 'karb94/neoscroll.nvim' -- smooth scrolling.
   use 'kyazdani42/nvim-tree.lua'
 
   use {
@@ -78,6 +87,11 @@ return packer.startup(function(use)
   use 'voldikss/vim-floaterm'
   use 'akinsho/toggleterm.nvim'
   use 'mg979/vim-visual-multi'
+  use {
+    'liuchengxu/vim-clap',
+    run = ':Clap install-binary!'
+  }
+  use 'numToStr/Comment.nvim'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -104,10 +118,10 @@ return packer.startup(function(use)
   -- go
   use 'fatih/vim-go'
   use 'dgryski/vim-godef'
+  use 'ray-x/go.nvim'
 
   -- hot reload
   use 'nvim-lua/plenary.nvim'
-  -- use 'famiu/nvim-reload'
 
   use 'folke/which-key.nvim'
 

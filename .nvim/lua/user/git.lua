@@ -1,6 +1,7 @@
-vim.g['gitgutter_sign_modified']                = '•'
-vim.g['gitgutter_sign_added']                   = '❖'
-vim.cmd [[highlight GitGutterAdd guifg = '#A3E28B']]
+vim.g['gitgutter_signs'] = 0
+-- vim.g['gitgutter_sign_modified']                = '•'
+-- vim.g['gitgutter_sign_added']                   = '❖'
+-- vim.cmd [[highlight GitGutterAdd guifg = '#A3E28B']]
 
 vim.g['lazygit_floating_window_winblend']       = 0 -- transparency of floating window
 vim.g['lazygit_floating_window_scaling_factor'] = 1.0 -- scaling factor for floating window

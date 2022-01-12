@@ -1,5 +1,7 @@
 vim.cmd [[
-  set shiftwidth=4
-  set softtabstop=4
-  set tabstop=4
+  augroup go
+    autocmd!
+    autocmd BufNewFile, BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+  augroup END
 ]]
+

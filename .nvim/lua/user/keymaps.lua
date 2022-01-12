@@ -1,6 +1,3 @@
--- vim.api.nvim_set_keymap('n', 'fr', ':w<CR>:source $MYVIMRC<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', 'fs', ':w<CR>', { noremap = true })
-
 vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
 
 local opts = { noremap = true, silent = true }
@@ -20,8 +17,8 @@ keymap('n', '<C-l>', '<C-w>l', opts)
 
 keymap('i', 'jk', '<esc>', opts)
 
--- keymap('v', '<', '<gv', opts)
--- keymap('v', '>', '>gv', opts)
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
 
 keymap('n', '<esc><esc>', '<cmd>nohlsearch<cr>', opts)
 
