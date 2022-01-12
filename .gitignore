@@ -6,3 +6,5 @@
 .nvim/plugged/*
 .tmux/plugins/*
 **/__pycache__/*
+
+.nvim/plugin/packer_compiled.lua
