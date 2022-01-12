@@ -69,7 +69,7 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = {
         { key = {"<CR>", "o", "<2-LeftMouse>","l", "h"}, cb = tree_cb("edit") },
-        { key = {"<2-RightMouse>", "<C-]>", ".", "<C-k>"},    cb     = tree_cb("cd") },
+        { key = {"<2-RightMouse>", "<C-]>", ".", "<C-j>"},    cb     = tree_cb("cd") },
         { key = "<C-v>",                        cb          = tree_cb("vsplit") },
         { key = "<C-x>",                        cb          = tree_cb("split") },
         { key = "<C-t>",                        cb          = tree_cb("tabnew") },
@@ -96,7 +96,7 @@ require'nvim-tree'.setup {
         { key = "gy",                           cb          = tree_cb("copy_absolute_path") },
         { key = "[c",                           cb          = tree_cb("prev_git_item") },
         { key = "]c",                           cb          = tree_cb("next_git_item") },
-        { key = {"-","<C-[>", "<C-j>"},                  cb          = tree_cb("dir_up") },
+        { key = {"-","<C-[>", "<C-k>"},                  cb          = tree_cb("dir_up") },
         --{ key = "s",                            cb = tree_cb("system_open") },
         --{ key = "s",                            cb = tree_cb("close") },
         { key = {"q"},                            cb        = tree_cb("close") },

@@ -74,6 +74,7 @@ for k, v in pairs(glb_opts) do
 end
 
 vim.cmd [[filetype on]]
+vim.cmd [[filetype plugin on]]
 vim.cmd [[filetype plugin indent on]]
 vim.cmd [[set whichwrap+=<,>,[,],h,l]]
 vim.cmd [[set iskeyword+=-]]
@@ -91,4 +92,8 @@ vim.cmd [[set guioptions-=l]]
 -- ]]
 
 vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-
+vim.cmd [[
+  if !exists("g:lasttab")
+    let g:lasttab = 1
+  endif
+]]

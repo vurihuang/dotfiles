@@ -9,6 +9,7 @@ alias mk='minikube'
 alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
 alias gdh='git diff HEAD^'
 alias lg='lazygit'
+alias ts='tig status'
 
 if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
     alias nvim="$HOME/soft/nvim/bin/nvim"

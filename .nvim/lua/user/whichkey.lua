@@ -164,10 +164,21 @@ local mappings = {
   },
 
   t = {
-    name = 'Terminal',
-    f = { '<cmd>ToggleTerm direction=float<cr>', 'Float'},
-    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal'},
-    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Vertical'},
+    name = 'Tab',
+    p = { '<cmd>tabprevious<cr>', 'Tab previous' },
+    n = { '<cmd>tabnext<cr>', 'Tab next' },
+    o = { '<cmd>exe "tabn ".g:lasttab<cr>', 'Tab switch' },
+    N = { '<cmd>tabnew<cr>', 'Tab new' },
+    d = { '<cmd>tabclose<cr>', 'Tab close' },
+    ['1'] = { '<cmd>tabn 1<cr>', 'Tab 1' },
+    ['2'] = { '<cmd>tabn 2<cr>', 'Tab 2' },
+    ['3'] = { '<cmd>tabn 3<cr>', 'Tab 3' },
+    ['4'] = { '<cmd>tabn 4<cr>', 'Tab 4' },
+    ['5'] = { '<cmd>tabn 5<cr>', 'Tab 5' },
+    ['0'] = { '<cmd>tablast<cr>', 'Tab last' },
+    -- f = { '<cmd>ToggleTerm direction=float<cr>', 'Float'},
+    -- h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal'},
+    -- v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Vertical'},
   },
 
   w = {

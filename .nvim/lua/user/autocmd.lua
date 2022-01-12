@@ -19,6 +19,10 @@ function autocmd.load_autocmds()
       {"BufWritePost",[[$VIM_PATH/{*.vim,*.yaml,vimrc} nested source $MYVIMRC | redraw]]};
     };
 
+    tabs = {
+      {"TabLeave", "*", [[let g:lasttab = tabpagenr()]]};
+    };
+
     wins = {
       -- Highlight current line only on focused window
       {"BufEnter,InsertLeave", "*", [[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]]};
