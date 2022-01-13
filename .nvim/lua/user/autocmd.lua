@@ -23,6 +23,11 @@ function autocmd.load_autocmds()
       {"TabLeave", "*", [[let g:lasttab = tabpagenr()]]};
     };
 
+    filetypes = {
+      {'Filetype', 'go', 'setl noexpandtab tabstop=4 shiftwidth=4'};
+      {'Filetype', 'make', 'setl noexpandtab tabstop=4 shiftwidth=4'};
+    };
+
     wins = {
       -- Highlight current line only on focused window
       {"BufEnter,InsertLeave", "*", [[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]]};

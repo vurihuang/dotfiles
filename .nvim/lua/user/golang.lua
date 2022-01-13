@@ -28,9 +28,18 @@ local options = {
   go_doc_popup_window                    = 1, -- use the popup-window for GoDoc, rather than the preview-window.
   go_def_mapping_enabled                 = 0, -- disable the default mapping of C-] and (gd) for GoDef.
   go_doc_keywordprg_enabled              = 0, -- disable run godoc on words under the cursor with K.
-  godef_split                            = 2
+  godef_split                            = 2,
 }
 
 for k, v in pairs(options) do
   vim.g[k] = v
 end
+
+vim.cmd [[
+  let g:go_debug_windows = {
+    \ 'vars':       'rightbelow 60vnew',
+    \ 'stack':      'rightbelow 10new',
+    \ 'out':        'botright 10new',
+  \ }
+]]
+
