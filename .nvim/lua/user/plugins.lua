@@ -51,8 +51,6 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   -- style
-  -- use 'vim-airline/vim-airline'
-  -- use 'vim-airline/vim-airline-themes'
   use 'kien/rainbow_parentheses.vim'
   use 'nathanaelkane/vim-indent-guides'
   use 'ojroques/vim-scrollstatus'
@@ -77,6 +75,7 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim' -- smooth scrolling.
   use 'kyazdani42/nvim-tree.lua'
   use 'easymotion/vim-easymotion'
+  use 'ahmedkhalf/project.nvim'
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -85,7 +84,6 @@ return packer.startup(function(use)
 
   -- tools
   use 'junegunn/vim-easy-align'
-  -- use 'liuchengxu/vim-which-key'
   use 'voldikss/vim-floaterm'
   use 'akinsho/toggleterm.nvim'
   use 'mg979/vim-visual-multi'
@@ -94,16 +92,14 @@ return packer.startup(function(use)
     run = ':Clap install-binary!'
   }
   use 'numToStr/Comment.nvim'
+  use 'tpope/vim-surround' -- change and add parentheses, brackets, quotes, etc.. surroundings in pairs
+  use 'nvim-lua/plenary.nvim'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  -- use 'glepnir/lspsaga.nvim'
   use 'tami5/lspsaga.nvim'
   use 'williamboman/nvim-lsp-installer'
-  -- use 'tamago324/nlsp-settings.nvim'
-  -- use 'jose-elias-alvarez/null-ls.nvim'
-  -- rename like vscode, need at least one lsp client.
-  use 'filipdutescu/renamer.nvim'
+  use 'filipdutescu/renamer.nvim' -- rename like vscode, need at least one lsp client.
   use 'ray-x/lsp_signature.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'folke/lsp-colors.nvim'
@@ -127,10 +123,13 @@ return packer.startup(function(use)
   use 'dgryski/vim-godef'
   use 'ray-x/go.nvim'
 
-  -- hot reload
-  use 'nvim-lua/plenary.nvim'
-
   use 'folke/which-key.nvim'
+
+  -- wait for try
+  -- use 'glepnir/lspsaga.nvim'
+  -- use 'tamago324/nlsp-settings.nvim'
+  -- use 'jose-elias-alvarez/null-ls.nvim'
+  -- use 'nvim-pack/nvim-spectre' -- regex search panel
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

@@ -78,19 +78,6 @@ local opts = {
   nowait = true,
 }
 
-local m_opts = {
-  mode = 'n',
-  prefix = 'm',
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  owait = true,
-}
-
-local m_mappings = {
-
-}
-
 local mappings = {
   b = {
     name = 'Buffer',
@@ -104,12 +91,13 @@ local mappings = {
   c = {
     name = 'Code',
     f = { 'za', 'Code fold' },
+    s = { 'cs', 'Change surround' },
   },
 
   f = {
     name = 'File',
     s = { '<cmd>w<cr>', 'File save' },
-    l = { '<cmd>Files<cr>', 'File list' },
+    l = { '<cmd>Telescope find_files<cr>', 'File list' },
     r = { '<cmd>Clap history<cr>', 'File recently' },
   },
 
@@ -150,7 +138,7 @@ local mappings = {
     name = 'Packer',
     i    = { '<cmd>PackerInstall<cr>', 'Install' },
     s    = { '<cmd>PackerSync<cr>', 'Sync' },
-    S    = { '<cmd>PackerStatus<cr>', 'Status' }
+    S    = { '<cmd>PackerStatus<cr>', 'Status' },
   },
 
   s = {
@@ -162,15 +150,17 @@ local mappings = {
     M = { '<cmd>Telescope man_pages<cr>', 'Man pages' },
     K = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
+    p = { '<cmd>Telescope projects<cr>', 'Projects' },
   },
 
   t = {
-    name = 'Tab',
+    name = 'Tab/Toggle',
     p = { '<cmd>tabprevious<cr>', 'Tab previous' },
     n = { '<cmd>tabnext<cr>', 'Tab next' },
     o = { '<cmd>exe "tabn ".g:lasttab<cr>', 'Tab switch' },
     N = { '<cmd>tabnew<cr>', 'Tab new' },
     d = { '<cmd>tabclose<cr>', 'Tab close' },
+    s = { '<cmd>SymbolsOutline<cr>', 'Symbols outline' },
     ['1'] = { '<cmd>tabn 1<cr>', 'Tab 1' },
     ['2'] = { '<cmd>tabn 2<cr>', 'Tab 2' },
     ['3'] = { '<cmd>tabn 3<cr>', 'Tab 3' },
@@ -191,7 +181,7 @@ local mappings = {
     j         = { '<c-w>j', 'Window below' },
     k         = { '<c-w>k', 'Window up' },
     l         = { '<c-w>l', 'Window right' },
-    q         = { '<cmd>quit<cr>', 'Window quit' },
+    q         = { '<cmd>qa<cr>', 'Quit' },
     o         = { '<c-w>w', 'Window switch' },
     z         = { '<cmd>call zoom#toggle()<cr>', 'Window zoom' },
     ['up']    = { '<c-w>+', 'Increase to up' },
