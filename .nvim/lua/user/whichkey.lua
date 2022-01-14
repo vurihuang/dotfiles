@@ -136,7 +136,7 @@ local mappings = {
 
   l = {
     name = 'Lsp',
-    a = { '<cmd>Lspsaga range_code_action<cr>', 'Code action' },
+    a = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
     p = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Diagnostic jump previous' },
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Diagnostic jump next' },
     i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Implementation' },

@@ -43,6 +43,7 @@ return packer.startup(function(use)
   -- themes
   use 'morhetz/gruvbox'
   use 'glepnir/zephyr-nvim'
+  use 'EdenEast/nightfox.nvim'
 
   -- git plugins
   use 'tpope/vim-fugitive'
@@ -73,7 +74,7 @@ return packer.startup(function(use)
     run = vim.fn['fzf#install()']
   }
   use 'junegunn/fzf.vim'
-  -- use 'karb94/neoscroll.nvim' -- smooth scrolling.
+  use 'karb94/neoscroll.nvim' -- smooth scrolling.
   use 'kyazdani42/nvim-tree.lua'
   use 'easymotion/vim-easymotion'
 
@@ -114,6 +115,11 @@ return packer.startup(function(use)
     'neoclide/coc.nvim',
     branch = 'release'
   }
+  use 'hrsh7th/nvim-cmp'
+
+  -- snippet
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- language
   -- go
