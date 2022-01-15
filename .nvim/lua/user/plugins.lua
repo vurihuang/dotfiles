@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use 'morhetz/gruvbox'
   use 'glepnir/zephyr-nvim'
   use 'EdenEast/nightfox.nvim'
+  use 'tanvirtin/monokai.nvim'
 
   -- git plugins
   use 'tpope/vim-fugitive'
@@ -81,6 +82,7 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'folke/zen-mode.nvim'
 
   -- tools
   use 'junegunn/vim-easy-align'
