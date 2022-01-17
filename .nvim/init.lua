@@ -5,6 +5,7 @@ require('user.plugins')
 require('user.colors')
 require('user.galaxyline')
 
+require('user.alpha')
 require('user.autocmd')
 require('user.bufferline')
 require('user.comment')

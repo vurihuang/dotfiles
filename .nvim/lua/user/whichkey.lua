@@ -95,19 +95,20 @@ local mappings = {
   },
 
   f = {
-    name = 'File',
+    name = 'Find/File',
     s = { '<cmd>w<cr>', 'File save' },
+    t = { '<cmd>Telescope live_grep<cr>', 'Find text' },
     l = { '<cmd>Telescope find_files<cr>', 'File list' },
-    r = { '<cmd>Clap history<cr>', 'File recently' },
+    r = { '<cmd>Telescope oldfiles<cr>', 'File recently' },
+    g = { '<cmd>Telescope git_files<cr>', 'Git files' },
+    S = { '<cmd>Telescope git_status<cr>', 'Git status' },
   },
 
   g = {
-    name = 'Git/Goto',
-    s = { '<cmd>Telescope git_status<cr>', 'Git status' },
+    name = 'Goto',
     h = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
     r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
-    l = { '<cmd>GFiles<cr>', 'Git files' },
     w = { '<Plug>(easymotion-w)', 'Word' },
   },
 

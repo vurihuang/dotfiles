@@ -64,6 +64,7 @@ return packer.startup(function(use)
   }
   use 'stevearc/dressing.nvim'
   use 'akinsho/bufferline.nvim'
+  use 'goolord/alpha-nvim'
 
   -- navigation
   use 'pechorin/any-jump.vim'
