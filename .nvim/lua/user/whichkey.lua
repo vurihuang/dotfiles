@@ -84,8 +84,8 @@ local mappings = {
     l = { '<cmd>Buffers<cr>', 'Buffer list' },
     p = { '<cmd>bp<cr>', 'Buffer prev' },
     n = { '<cmd>bn<cr>', 'Buffer next' },
-    d = { '<cmd>bd<cr>', 'Buffer delete' },
-    s = { '<cmd>BufstopPreview', 'Buffer switch' },
+    d = { '<cmd>Bdelete<cr>', 'Buffer delete' },
+    s = { '<cmd>BufstopPreview<cr>', 'Buffer switch' },
   },
 
   c = {
@@ -151,6 +151,7 @@ local mappings = {
     K = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { '<cmd>Telescope projects<cr>', 'Projects' },
+    g = { '<cmd>Rg<cr>', 'Grep' },
   },
 
   t = {
@@ -197,7 +198,6 @@ local mappings = {
     w    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/whichkey.lua<cr>', 'Open whichkey' },
     i    = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
     o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
-    r    = { '<cmd>Reload<cr>', 'Reload' },
   },
 }
 

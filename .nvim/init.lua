@@ -1,13 +1,15 @@
 require('user.options')
+
 require('user.keymaps')
 require('user.plugins')
 require('user.colors')
 require('user.galaxyline')
 
 require('user.autocmd')
-require('user.coc')
+require('user.bufferline')
 require('user.comment')
 require('user.cmp')
+require('user.dressing')
 require('user.floaterm')
 require('user.git')
 require('user.gitsigns')
@@ -24,5 +26,7 @@ require('user.surround')
 require('user.symbol-outline')
 require('user.telescope')
 require('user.treesitter')
+require('user.zen')
 
 require('user.whichkey')
+

@@ -58,11 +58,12 @@ return packer.startup(function(use)
   use 'glepnir/galaxyline.nvim' -- statusline
   use 'kyazdani42/nvim-web-devicons'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'dhruvasagar/vim-zoom'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
+  use 'stevearc/dressing.nvim'
+  use 'akinsho/bufferline.nvim'
 
   -- navigation
   use 'pechorin/any-jump.vim'
@@ -96,6 +97,7 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround' -- change and add parentheses, brackets, quotes, etc.. surroundings in pairs
   use 'nvim-lua/plenary.nvim'
+  use 'famiu/bufdelete.nvim' -- delete buffer without losing the window layout
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -109,11 +111,25 @@ return packer.startup(function(use)
   -- completion
 
   use 'jiangmiao/auto-pairs'
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release'
-  }
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
+  use {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+      }
+    end,
+
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  }
 
   -- snippet
   use 'L3MON4D3/LuaSnip'
@@ -128,10 +144,10 @@ return packer.startup(function(use)
   use 'folke/which-key.nvim'
 
   -- wait for try
-  -- use 'glepnir/lspsaga.nvim'
   -- use 'tamago324/nlsp-settings.nvim'
   -- use 'jose-elias-alvarez/null-ls.nvim'
   -- use 'nvim-pack/nvim-spectre' -- regex search panel
+  -- use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
