@@ -48,26 +48,3 @@ saga.init_lsp_saga {
   diagnostic_prefix_format = "%d. ",
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = true,
-    signs = {
-      enable = true,
-      priority = 20,
-    },
-    update_in_insert = false,
-  }
-)
-
-lspconfig.gopls.setup {
-  cmd = { "gopls", "--remote=auto" },
-  capabilities = capabilities,
-  init_options = {
-    usePlaceholders = true,
-    completeUnimported = true,
-  }
-}

@@ -57,6 +57,7 @@ local options = {
   foldenable = true,
   re = 0, -- regexpengine
   laststatus = 2,
+  background = 'dark',
 }
 
 vim.opt.shortmess:append "c" -- avoid the hit-enter prompts caused by file messages(don't give `ins-completion-menu` messages)

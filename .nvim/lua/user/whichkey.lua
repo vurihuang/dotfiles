@@ -81,7 +81,7 @@ local opts = {
 local mappings = {
   b = {
     name = 'Buffer',
-    l = { '<cmd>Buffers<cr>', 'Buffer list' },
+    l = { '<cmd>Telescope buffers<cr>', 'Buffer list' },
     p = { '<cmd>bp<cr>', 'Buffer prev' },
     n = { '<cmd>bn<cr>', 'Buffer next' },
     d = { '<cmd>Bdelete<cr>', 'Buffer delete' },
@@ -106,9 +106,9 @@ local mappings = {
 
   g = {
     name = 'Goto',
-    h = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
-    r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
+    D = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
+    r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     w = { '<Plug>(easymotion-w)', 'Word' },
   },
 
@@ -130,7 +130,8 @@ local mappings = {
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Diagnostic jump next' },
     i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Implementation' },
     h = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature help' },
-    r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
+    R = { '<cmd>Lspsaga rename<cr>', 'Rename' },
+    r = { '<cmd>Telescope lsp_references<cr>', 'References' },
     w = { '<cmd>Lspsaga lsp_finder<cr>', 'Find definition and refernces' },
     v = { '<cmd>Lspsaga preview_definition<cr>', 'Preview definition' },
   },
@@ -190,6 +191,15 @@ local mappings = {
     ['down']  = { '<c-w>-', 'Increase to down' },
     ['left']  = { "<c-w>\\>", 'Increase to left' },
     ['right'] = { "<c-w>\\<", 'Increase to right' },
+  },
+
+  m = {
+   name = 'Bookmark',
+   m    = { '<cmd>BookmarkToggle<cr>', 'Bookmark Toggle' },
+   l    = { '<cmd>lua require("telescope").extensions.vim_bookmarks.all({ hide_filename=false, prompt_title="bookmarks", shorten_path=false })<cr>', 'Bookmark list' },
+   p    = { '<cmd>BookmarkPrev<cr>', 'Bookmark prev' },
+   n    = { '<cmd>BookmarkNext<cr>', 'Bookmark next' },
+   C    = { '<cmd>BookmarkClear<cr>', 'Bookmark clear' },
   },
 
   [','] = {

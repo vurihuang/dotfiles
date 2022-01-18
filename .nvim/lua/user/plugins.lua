@@ -55,7 +55,9 @@ return packer.startup(function(use)
   use 'kien/rainbow_parentheses.vim'
   use 'nathanaelkane/vim-indent-guides'
   use 'ojroques/vim-scrollstatus'
-  use 'glepnir/galaxyline.nvim' -- statusline
+  -- use 'glepnir/galaxyline.nvim' -- statusline
+  -- use '~/workspace/upeoe/galaxyline.nvim'
+  use 'upeoe/galaxyline.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'lukas-reineke/indent-blankline.nvim'
   use {
@@ -99,6 +101,9 @@ return packer.startup(function(use)
   use 'tpope/vim-surround' -- change and add parentheses, brackets, quotes, etc.. surroundings in pairs
   use 'nvim-lua/plenary.nvim'
   use 'famiu/bufdelete.nvim' -- delete buffer without losing the window layout
+  use 'lewis6991/impatient.nvim'
+  use 'MattesGroeger/vim-bookmarks'
+  use 'tom-anders/telescope-vim-bookmarks.nvim'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -117,6 +122,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
   use {
     "tzachar/cmp-tabnine",
     config = function()
@@ -149,6 +155,7 @@ return packer.startup(function(use)
   -- use 'jose-elias-alvarez/null-ls.nvim'
   -- use 'nvim-pack/nvim-spectre' -- regex search panel
   -- use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
+  -- use 'ThePrimeagen/harpoon'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
