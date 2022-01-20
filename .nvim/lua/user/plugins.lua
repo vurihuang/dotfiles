@@ -108,6 +108,7 @@ return packer.startup(function(use)
   use 'tom-anders/telescope-vim-bookmarks.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
+  use 'rcarriga/nvim-notify' -- fancy notify
 
   -- lsp
   use 'neovim/nvim-lspconfig'

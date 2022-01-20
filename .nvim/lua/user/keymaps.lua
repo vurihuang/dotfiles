@@ -33,5 +33,3 @@ keymap('n', '<f2>', '<cmd>SymbolsOutline<cr>', opts)
 keymap('n', '<C-u>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<cr>', opts)
 keymap('n', '<C-d>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<cr>', opts)
 
--- vim go
-keymap('n', '<F5>', '<cmd>GoDebugTestFunc<cr>', opts)
