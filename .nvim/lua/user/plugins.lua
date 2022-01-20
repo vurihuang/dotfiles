@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use 'glepnir/zephyr-nvim'
   use 'EdenEast/nightfox.nvim'
   use 'tanvirtin/monokai.nvim'
+  use 'fatih/molokai'
 
   -- git plugins
   use 'tpope/vim-fugitive'
@@ -86,6 +87,7 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use 'folke/zen-mode.nvim'
 
   -- tools
@@ -104,6 +106,8 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'MattesGroeger/vim-bookmarks'
   use 'tom-anders/telescope-vim-bookmarks.nvim'
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -148,6 +152,13 @@ return packer.startup(function(use)
   use 'dgryski/vim-godef'
   use 'ray-x/go.nvim'
 
+  -- markdown
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    ft = 'markdown',
+  }
+
   use 'folke/which-key.nvim'
 
   -- wait for try
@@ -156,6 +167,7 @@ return packer.startup(function(use)
   -- use 'nvim-pack/nvim-spectre' -- regex search panel
   -- use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
   -- use 'ThePrimeagen/harpoon'
+  -- use 'nyngwang/NeoZoom.lua'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

@@ -85,9 +85,7 @@ local mappings = {
     p = { '<cmd>bp<cr>', 'Buffer prev' },
     n = { '<cmd>bn<cr>', 'Buffer next' },
     d = { '<cmd>Bdelete<cr>', 'Buffer delete' },
-    s = { '<cmd>BufstopPreview<cr>', 'Buffer switch' },
   },
-
   c = {
     name = 'Code',
     f = { 'za', 'Code fold' },
@@ -97,11 +95,11 @@ local mappings = {
   f = {
     name = 'Find/File',
     s = { '<cmd>w<cr>', 'File save' },
-    t = { '<cmd>Telescope live_grep<cr>', 'Find text' },
     l = { '<cmd>Telescope find_files<cr>', 'File list' },
     r = { '<cmd>Telescope oldfiles<cr>', 'File recently' },
     g = { '<cmd>Telescope git_files<cr>', 'Git files' },
     S = { '<cmd>Telescope git_status<cr>', 'Git status' },
+    b = { '<cmd>Telescope file_browser<cr>', 'File browser' },
   },
 
   g = {
@@ -153,7 +151,7 @@ local mappings = {
     K = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { '<cmd>Telescope projects<cr>', 'Projects' },
-    g = { '<cmd>Rg<cr>', 'Grep' },
+    g = { '<cmd>Telescope live_grep<cr>', 'Grep' },
   },
 
   t = {
@@ -210,6 +208,7 @@ local mappings = {
     i    = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
     o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
   },
+  ['/'] = { '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', 'Comment' },
 }
 
 
@@ -229,8 +228,17 @@ local x_opts = {
  nowait      = true,
 }
 
-local v_mappings = {}
-local v_opts = {}
+local v_mappings = {
+  ['/'] = { '<Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', 'Comment' },
+}
+local v_opts = {
+  mode    = "v", -- VISUAL mode
+  prefix  = "<leader>",
+  buffer  = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent  = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait  = true, -- use `nowait` when creating keymaps
+}
 
 local t_mappings = {
   i = {
@@ -255,3 +263,4 @@ which_key.register(mappings, opts)
 which_key.register(v_mappings, v_opts)
 which_key.register(x_mappings, x_opts)
 which_key.register(t_mappings, t_opts)
+

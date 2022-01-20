@@ -1,5 +1,5 @@
 local opts = {
-  floaterm_keymap_toggle = '<F3>',
+  floaterm_keymap_toggle = '',
   floaterm_wintitle = 1,
   floaterm_width = 0.8,
   floaterm_height = 0.8,

@@ -1,6 +1,5 @@
 require('user.options')
 
-require('user.keymaps')
 require('user.plugins')
 require('user.colors')
 require('user.galaxyline')
@@ -31,5 +30,5 @@ require('user.telescope')
 require('user.treesitter')
 require('user.zen')
 
+require('user.keymaps')
 require('user.whichkey')
-
