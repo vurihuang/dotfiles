@@ -45,7 +45,7 @@ vim.g.symbols_outline = {
     Null = {icon = "NULL", hl = "CmpItemKindType"},
     EnumMember = {icon = "", hl = "CmpItemKindField"},
     Struct = {icon = "𝓢", hl = "CmpItemKindType"},
-    Event = {icon = "🗲", hl = "CmpItemKindType"},
+    Event = {icon = "", hl = "CmpItemKindType"},
     Operator = {icon = "+", hl = "CmpItemKindOperator"},
     TypeParameter = {icon = "𝙏", hl = "CmpItemKindParameter"}
   }

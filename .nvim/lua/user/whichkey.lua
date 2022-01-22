@@ -133,7 +133,7 @@ local mappings = {
     R    = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References pinned' },
     r    = { '<cmd>Telescope lsp_references<cr>', 'References' },
     w    = { '<cmd>Lspsaga lsp_finder<cr>', 'Find definition and refernces' },
-    v    = { '<cmd>Lspsaga preview_definition<cr>', 'Preview definition' },
+    v    = { '<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Preview definition' },
   },
 
   p = {

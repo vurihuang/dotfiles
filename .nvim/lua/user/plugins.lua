@@ -118,6 +118,7 @@ return packer.startup(function(use)
   use 'ray-x/lsp_signature.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'folke/lsp-colors.nvim'
+  use 'rmagatti/goto-preview'
 
   -- completion
 
