@@ -54,7 +54,6 @@ return packer.startup(function(use)
 
   -- style
   use 'kien/rainbow_parentheses.vim'
-  use 'nathanaelkane/vim-indent-guides'
   use 'ojroques/vim-scrollstatus'
   -- use 'glepnir/galaxyline.nvim' -- statusline
   -- use '~/workspace/upeoe/galaxyline.nvim'
@@ -70,7 +69,6 @@ return packer.startup(function(use)
   use 'goolord/alpha-nvim'
 
   -- navigation
-  use 'pechorin/any-jump.vim'
   use 'psliwka/vim-smoothie'
   use 'mihaifm/bufstop'
   use {
@@ -163,7 +161,10 @@ return packer.startup(function(use)
 
   use 'folke/which-key.nvim'
 
-  -- wait for try
+  ---- some plugins have been tried, make a snapshot list for some day.
+  -- use 'nathanaelkane/vim-indent-guides' -- make the indent has block color.
+
+  ---- wait for try
   -- use 'tamago324/nlsp-settings.nvim'
   -- use 'jose-elias-alvarez/null-ls.nvim'
   -- use 'nvim-pack/nvim-spectre' -- regex search panel
