@@ -108,6 +108,7 @@ return packer.startup(function(use)
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'rcarriga/nvim-notify' -- fancy notify
+  use "norcalli/nvim-colorizer.lua" -- show color in editor
 
   -- lsp
   use 'neovim/nvim-lspconfig'

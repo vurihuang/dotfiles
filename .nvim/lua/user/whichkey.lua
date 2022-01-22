@@ -105,10 +105,8 @@ local mappings = {
   },
 
   g = {
-    name = 'Goto',
-    d    = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
-    D    = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
-    r    = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
+    name = 'Git/Goto',
+    d    = { '<cmd>Gitsigns preview_hunk<cr>', 'Git diff' },
     w    = { '<Plug>(easymotion-w)', 'Word' },
   },
 
@@ -126,6 +124,8 @@ local mappings = {
   l = {
     name = 'Lsp',
     a    = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
+    d    = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Definition' },
+    D    = { '<cmd>Lspsaga hover_doc<cr>', 'Doc' },
     p    = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Diagnostic jump previous' },
     n    = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Diagnostic jump next' },
     i    = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Implementation' },
