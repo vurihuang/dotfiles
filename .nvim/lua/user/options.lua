@@ -95,6 +95,7 @@ vim.cmd [[set guioptions-=l]]
 -- ]]
 
 vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+-- use to buffer switch
 vim.cmd [[
   if !exists("g:lasttab")
     let g:lasttab = 1

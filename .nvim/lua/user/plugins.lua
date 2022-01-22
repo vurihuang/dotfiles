@@ -106,6 +106,7 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'MattesGroeger/vim-bookmarks'
   use 'tom-anders/telescope-vim-bookmarks.nvim'
+  use 'nvim-telescope/telescope-ui-select.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'rcarriga/nvim-notify' -- fancy notify
@@ -174,3 +175,4 @@ return packer.startup(function(use)
     require('packer').sync()
   end
 end)
+

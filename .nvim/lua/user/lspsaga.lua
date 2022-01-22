@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
-local lspconfig = require('lspconfig')
-
 saga.init_lsp_saga {
   debug = false,
   use_saga_diagnostic_sign = true,
@@ -24,7 +22,7 @@ saga.init_lsp_saga {
   },
   finder_definition_icon = "  ",
   finder_reference_icon = "  ",
-  max_preview_lines = 10,
+  max_preview_lines = 15,
   finder_action_keys = {
     open = "o",
     vsplit = "s",
