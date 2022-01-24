@@ -56,8 +56,7 @@ return packer.startup(function(use)
   use 'kien/rainbow_parentheses.vim'
   use 'ojroques/vim-scrollstatus'
   -- use 'glepnir/galaxyline.nvim' -- statusline
-  -- use '~/workspace/upeoe/galaxyline.nvim'
-  use 'upeoe/galaxyline.nvim'
+  use 'upeoe/galaxyline.nvim' -- fixed sth.
   use 'kyazdani42/nvim-web-devicons'
   use 'lukas-reineke/indent-blankline.nvim'
   use {
@@ -67,6 +66,7 @@ return packer.startup(function(use)
   use 'stevearc/dressing.nvim'
   use 'akinsho/bufferline.nvim'
   use 'goolord/alpha-nvim'
+  use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar.
 
   -- navigation
   use 'psliwka/vim-smoothie'

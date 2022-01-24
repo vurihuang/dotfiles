@@ -2,6 +2,8 @@
 local gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
+---@diagnostic disable-next-line: different-requires
+local gps = require('nvim-gps')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
@@ -31,9 +33,9 @@ gls.left[2] = {
         V    = 'VISUAL LINE',
         [''] = 'VISUAL BLOCK',
       }
-      return alias[vim.fn.mode()] .. ' '
+      return alias[vim.fn.mode()]
     end,
-    separator = '',
+    separator = ' ',
     separator_highlight = {colors.purple,function()
       if not buffer_not_empty() then
         return colors.purple
@@ -61,13 +63,25 @@ gls.left[4] = {
 }
 
 gls.left[5] = {
+  GPS = {
+    provider = function()
+      return gps.get_location()
+    end,
+    condition = function()
+      return gps.is_available()
+    end,
+    separator = ' ',
+  }
+}
+
+gls.left[6] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = {colors.red,colors.bg}
   }
 }
-gls.left[6] = {
+gls.left[7] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -75,7 +89,7 @@ gls.left[6] = {
   }
 }
 
-gls.left[7] = {
+gls.left[8] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -83,29 +97,13 @@ gls.left[7] = {
   }
 }
 
-gls.left[8] = {
+gls.left[9] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
     highlight = {colors.blue,colors.bg},
   }
 }
-
--- bar mid
--- gls.mid[1] = {
---   ShowLspClient = {
---     provider = 'GetLspClient',
---     condition = function ()
---       local tbl = {['dashboard'] = true,['']=true}
---       if tbl[vim.bo.filetype] then
---         return false
---       end
---       return true
---     end,
---     icon = ' LSP:',
---     highlight = {colors.yellow,colors.bg,'bold'}
---   }
--- }
 
 -- bar right
 gls.right[1] = {
