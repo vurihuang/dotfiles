@@ -58,6 +58,7 @@ local options = {
   re = 0, -- regexpengine
   laststatus = 2,
   background = 'dark',
+  fillchars = 'eob: ' -- hide the tilde sign onn blank lines
 }
 
 vim.opt.shortmess:append "c" -- avoid the hit-enter prompts caused by file messages(don't give `ins-completion-menu` messages)
@@ -101,3 +102,4 @@ vim.cmd [[
     let g:lasttab = 1
   endif
 ]]
+
