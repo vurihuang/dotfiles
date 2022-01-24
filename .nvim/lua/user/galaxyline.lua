@@ -161,7 +161,7 @@ gls.right[6] = {
 
 gls.right[7] = {
   ScrollBar = {
-    provider = 'ScrollBar',
+    provider = 'LinePercent',
     separator = ' ',
     separator_highlight = {'NONE',colors.bg},
     highlight = {colors.fg,colors.bg,'bold'},

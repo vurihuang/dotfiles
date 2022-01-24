@@ -11,13 +11,14 @@ vim.g.nvim_tree_icons = {
     ignored = "◌",
   },
   folder = {
-    -- arrow_open = " ",
-    -- arrow_closed = " ",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
+    arrow_open   = "",
+    arrow_closed = "",
+    default      = "",
+    open         = "",
+    empty        = "",
+    empty_open   = "",
+    symlink      = "",
+    symlink_open = "",
   },
 }
 
@@ -60,7 +61,7 @@ nvimtree.setup {
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
-  update_cwd          = false,
+  update_cwd          = true,
   -- show lsp diagnostics in the signcolumn
   -- lsp_diagnostics     = false,
   diagnostics = {
