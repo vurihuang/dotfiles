@@ -135,6 +135,7 @@ local mappings = {
     r    = { '<cmd>Telescope lsp_references<cr>', 'References' },
     w    = { '<cmd>Lspsaga lsp_finder<cr>', 'Find definition and refernces' },
     v    = { '<cmd>lua require("goto-preview").goto_preview_definition()<cr>', 'Preview definition' },
+    V    = { '<cmd>lua require("goto-preview").close_all_win()<cr>', 'Close all preview wins' },
   },
 
   p = {
@@ -218,6 +219,7 @@ local mappings = {
     o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
   },
   ['/'] = { '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', 'Comment' },
+  ['?'] = { '<cmd>Cheatsheet<cr>', 'Cheatsheet' },
 }
 
 

@@ -8,3 +8,8 @@ vim.g['lazygit_floating_window_scaling_factor'] = 1.0 -- scaling factor for floa
 vim.g['lazygit_floating_window_corner_chars']   = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
 vim.g['lazygit_use_neovim_remote']              = 1 -- for neovim-remote support
 
+vim.cmd [[
+  highlight GitGutterAdd    guifg=#009900 ctermfg=2
+  highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+  highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+]]
