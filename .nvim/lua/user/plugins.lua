@@ -63,7 +63,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-  use 'stevearc/dressing.nvim'
+  use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
   use 'akinsho/bufferline.nvim'
   use 'goolord/alpha-nvim'
   use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar.
@@ -139,15 +139,6 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use {
     "tzachar/cmp-tabnine",
-    config = function()
-      local tabnine = require "cmp_tabnine.config"
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-      }
-    end,
-
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   }
@@ -175,12 +166,12 @@ return packer.startup(function(use)
   -- use 'nathanaelkane/vim-indent-guides' -- make the indent has block color.
 
   ---- wait for try
-  -- use 'tamago324/nlsp-settings.nvim'
-  -- use 'jose-elias-alvarez/null-ls.nvim'
-  -- use 'nvim-pack/nvim-spectre' -- regex search panel
-  -- use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
-  -- use 'ThePrimeagen/harpoon'
-  -- use 'nyngwang/NeoZoom.lua'
+  -- 'tamago324/nlsp-settings.nvim'
+  -- 'jose-elias-alvarez/null-ls.nvim'
+  -- 'nvim-pack/nvim-spectre' -- regex search panel
+  -- 'ThePrimeagen/harpoon'
+  -- 'nyngwang/NeoZoom.lua'
+  -- 'tpope/vim-repeat' -- enable repeating supported plugin maps with `.`
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
