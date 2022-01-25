@@ -107,15 +107,9 @@ telescope.setup {
         },
       },
     },
-    ['ui-select'] = {
-      require('telescope.themes').get_dropdown {
-        previewer = false,
-      }
-    },
   },
 }
 
 telescope.load_extension 'file_browser'
 telescope.load_extension 'media_files'
 telescope.load_extension 'notify'
-telescope.load_extension 'ui-select'

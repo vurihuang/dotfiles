@@ -67,6 +67,7 @@ return packer.startup(function(use)
   use 'akinsho/bufferline.nvim'
   use 'goolord/alpha-nvim'
   use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar.
+  use 'ThemerCorp/themer.lua' -- simple, minimal highlighter plugin
 
   -- navigation
   use 'psliwka/vim-smoothie'
@@ -104,11 +105,18 @@ return packer.startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'MattesGroeger/vim-bookmarks'
   use 'tom-anders/telescope-vim-bookmarks.nvim'
-  use 'nvim-telescope/telescope-ui-select.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'rcarriga/nvim-notify' -- fancy notify
   use "norcalli/nvim-colorizer.lua" -- show color in editor
+  use {
+    'sudormrfbin/cheatsheet.nvim',
+    requires = {
+        {'nvim-telescope/telescope.nvim'},
+        {'nvim-lua/popup.nvim'},
+        {'nvim-lua/plenary.nvim'},
+      }
+  }
 
   -- lsp
   use 'neovim/nvim-lspconfig'
