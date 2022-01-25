@@ -86,6 +86,7 @@ local mappings = {
     n    = { '<cmd>bn<cr>', 'Buffer next' },
     d    = { '<cmd>Bdelete<cr>', 'Buffer delete' },
     D    = { '<cmd>%bd|e#<cr>', 'Buffer delete leave current' },
+    S    = { '<cmd>wa<cr>', 'Save all buffer' },
   },
 
   c = {
@@ -204,7 +205,7 @@ local mappings = {
 
   r = {
     name = 'Refactor',
-    n = { '<cmd>lua require("renamer").rename({empty = false})<cr>', 'Rename' },
+    n = { '<cmd>lua require("renamer").rename({empty = true})<cr>', 'Rename' },
     s = { '<cmd>call <SNR>92_changesurround()<cr>', 'Surround' },
   },
 
