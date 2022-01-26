@@ -7,13 +7,6 @@ local gps = require('nvim-gps')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
-local buffer_not_empty = function()
-  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-    return true
-  end
-  return false
-end
-
 -- bar left
 gls.left[1] = {
   RainbowRed = {
@@ -25,24 +18,39 @@ gls.left[1] = {
 gls.left[2] = {
   ViMode = {
     provider = function()
-      local alias = {
-        n    = 'NORMAL',
-        i    = 'INSERT',
-        c    = 'COMMAND',
-        v    = 'VISUAL',
-        V    = 'VISUAL LINE',
-        [''] = 'VISUAL BLOCK',
+      -- auto change color according the vim mode
+      local mode_color = {
+        n      = colors.red,
+        i      = colors.green,
+        v      = colors.blue,
+        V      = colors.blue,
+        c      = colors.magenta,
+        no     = colors.red,
+        s      = colors.orange,
+        S      = colors.orange,
+        ['']   = colors.orange,
+        ic     = colors.yellow,
+        R      = colors.violet,
+        Rv     = colors.violet,
+        cv     = colors.red,
+        ce     = colors.red,
+        r      = colors.cyan,
+        rm     = colors.cyan,
+        ['r?'] = colors.cyan,
+        ['!']  = colors.red,
+        t      = colors.red,
       }
-      return alias[vim.fn.mode()]
-    end,
-    separator = ' ',
-    separator_highlight = {colors.purple,function()
-      if not buffer_not_empty() then
-        return colors.purple
+      local text = '  '
+      local color = ''
+      if mode_color[vim.fn.mode()] == nil then
+        color = 'Grey30'
+      else
+        color = mode_color[vim.fn.mode()]
       end
-      return colors.darkblue
-    end},
-    highlight = {colors.darkblue,colors.purple,'bold'},
+
+      vim.api.nvim_command('hi GalaxyViMode guifg=' .. color .. ' guibg=' .. colors.bg)
+      return text
+    end,
   },
 }
 
