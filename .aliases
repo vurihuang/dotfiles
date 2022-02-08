@@ -17,3 +17,5 @@ if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
 fi
 
 alias uuid="uuidgen | pbcopy"
+
+alias hf='history | fzf'
