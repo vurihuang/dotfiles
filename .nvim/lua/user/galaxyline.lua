@@ -7,6 +7,34 @@ local gps = require('nvim-gps')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
+local function get_filename()
+  local file = vim.fn.expand('%:.')
+  if vim.fn.empty(file) == 1 then return '' end
+  return file
+end
+
+local function get_file_ext_icon()
+  if vim.bo.filetype == 'help' then
+    return ''
+  end
+  local icon = ''
+  local color = ''
+  if vim.bo.readonly then
+    icon = ''
+    color = colors.yellow
+  end
+  if vim.bo.modifiable then
+    if vim.bo.modified then
+      icon = ''
+      color = colors.orange
+    end
+  end
+  if string.len(color) ~= 0 then
+      vim.api.nvim_command('hi GalaxyFileExtIcon guifg=' .. color .. ' guibg=' .. colors.bg)
+  end
+  return icon
+end
+
 -- bar left
 gls.left[1] = {
   RainbowRed = {
@@ -64,13 +92,27 @@ gls.left[3] ={
 
 gls.left[4] = {
   FileName = {
-    provider = 'FileName',
+    provider = function()
+      return get_filename()
+    end,
     condition = condition.buffer_not_empty,
-    highlight = {colors.fg,colors.bg,'bold'}
+    highlight = {colors.fg,colors.bg,'bold'},
+    separator = ' ',
   }
 }
 
 gls.left[5] = {
+  FileExtIcon = {
+    provider = function()
+      return get_file_ext_icon()
+    end,
+    condition = condition.buffer_not_empty,
+    highlight = {colors.fg,colors.bg,'bold'},
+    separator = ' ',
+  }
+}
+
+gls.left[6] = {
   GPS = {
     provider = function()
       return gps.get_location()
@@ -82,14 +124,14 @@ gls.left[5] = {
   }
 }
 
-gls.left[6] = {
+gls.left[7] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = {colors.red,colors.bg}
   }
 }
-gls.left[7] = {
+gls.left[8] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -97,7 +139,7 @@ gls.left[7] = {
   }
 }
 
-gls.left[8] = {
+gls.left[9] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -105,7 +147,7 @@ gls.left[8] = {
   }
 }
 
-gls.left[9] = {
+gls.left[10] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
