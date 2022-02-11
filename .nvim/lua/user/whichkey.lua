@@ -111,17 +111,6 @@ local mappings = {
     w    = { '<Plug>(easymotion-w)', 'Word' },
   },
 
-  i = {
-    name = 'Term',
-    N    = { '<cmd>FloatermNew --width=0.9 --height=0.8<cr>', 'New Terminal' },
-    p    = { '<cmd>FloatermPrev<cr>', 'Term previous' },
-    n    = { '<cmd>FloatermNext<cr>' , 'Term next' },
-    t    = { '<cmd>FloatermToggle<cr>', 'Term toggle' },
-    f    = { '<cmd>FloatermNew fzf<cr>', 'Term fzf' },
-    g    = { '<cmd>FloatermNew lazygit<cr>', 'Term lazygit' },
-    r    = { '<cmd>FloatermNew ranger<cr>', 'Term ranger'},
-  },
-
   l = {
     name = 'Lsp',
     a    = { '<cmd>Lspsaga code_action<cr>', 'Code action' },
@@ -159,22 +148,23 @@ local mappings = {
   },
 
   t = {
-    name  = 'Tab/Toggle',
+    name  = 'Tab/Terminal',
     p     = { '<cmd>tabprevious<cr>', 'Tab previous' },
     n     = { '<cmd>tabnext<cr>', 'Tab next' },
     o     = { '<cmd>exe "tabn ".g:lasttab<cr>', 'Tab switch' },
     N     = { '<cmd>tabnew<cr>', 'Tab new' },
     d     = { '<cmd>tabclose<cr>', 'Tab close' },
     s     = { '<cmd>SymbolsOutline<cr>', 'Symbols outline' },
+    t     = { '<cmd>ToggleTerm direction=float<cr>', 'Terminal Float' },
+    h     = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Terminal Horizontal' },
+    v     = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Terminal Vertical'},
+    g     = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'LazyGit' },
     ['1'] = { '<cmd>BufferLineGoToBuffer 1<cr>', 'Tab 1' },
     ['2'] = { '<cmd>BufferLineGoToBuffer 2<cr>', 'Tab 2' },
     ['3'] = { '<cmd>BufferLineGoToBuffer 3<cr>', 'Tab 3' },
     ['4'] = { '<cmd>BufferLineGoToBuffer 4<cr>', 'Tab 4' },
     ['5'] = { '<cmd>BufferLineGoToBuffer 5<cr>', 'Tab 5' },
     ['0'] = { '<cmd>blast<cr>', 'Tab last' },
-    -- f = { '<cmd>ToggleTerm direction=float<cr>', 'Float'},
-    -- h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal'},
-    -- v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Vertical'},
   },
 
   w = {
@@ -193,7 +183,6 @@ local mappings = {
     ['<down>']  = {'<cmd>resize -5<cr>', 'Window resize down'},
     ['<left>']  = {'<cmd>vertical resize +5<cr>', 'Window resize left'},
     ['<right>'] = {'<cmd>vertical resize -5<cr>', 'Window resize right'},
-
  },
   m = {
     name = 'Bookmark',
@@ -251,27 +240,8 @@ local v_opts = {
   nowait  = true, -- use `nowait` when creating keymaps
 }
 
-local t_mappings = {
-  i = {
-    name = 'Term',
-    p    = { '<cmd>FloatermPrev<cr>', 'Term previous' },
-    n    = { '<cmd>FloatermNext<cr>', 'Term next' },
-    t    = { '<cmd>FloatermToggle<cr>', 'Term toggle' },
-  }
-}
-
-local t_opts = {
-  mode    = 't',
-  prefix  = '<leader>',
-  buffer  = nil,
-  silent  = true,
-  noremap = true,
-  nowait  = true,
-}
-
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(v_mappings, v_opts)
 which_key.register(x_mappings, x_opts)
-which_key.register(t_mappings, t_opts)
 
