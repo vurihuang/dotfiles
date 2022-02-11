@@ -55,8 +55,7 @@ return packer.startup(function(use)
   -- style
   use 'kien/rainbow_parentheses.vim'
   use 'ojroques/vim-scrollstatus'
-  -- use 'glepnir/galaxyline.nvim' -- statusline
-  use 'upeoe/galaxyline.nvim' -- fixed sth.
+  use 'NTBBloodbath/galaxyline.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'lukas-reineke/indent-blankline.nvim'
   use {
@@ -117,6 +116,7 @@ return packer.startup(function(use)
         {'nvim-lua/plenary.nvim'},
       }
   }
+  use 'dstein64/vim-startuptime'
 
   -- lsp
   use 'neovim/nvim-lspconfig'

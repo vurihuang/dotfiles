@@ -1,11 +1,51 @@
----@diagnostic disable-next-line: different-requires
 local gl = require('galaxyline')
-local colors = require('galaxyline.theme').default
-local condition = require('galaxyline.condition')
----@diagnostic disable-next-line: different-requires
 local gps = require('nvim-gps')
 local gls = gl.section
+local condition = require('galaxyline.condition')
+local provider_buffer = require('galaxyline.providers.buffer')
+local provider_fileinfo = require('galaxyline.providers.fileinfo')
+
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
+
+local colors = {
+  bg = "#282c34",
+  yellow = "#fabd2f",
+  cyan = "#008080",
+  darkblue = "#081633",
+  green = "#afd700",
+  orange = "#FF8800",
+  purple = "#5d4d7a",
+  magenta = "#d16d9e",
+  grey = "#c0c0c0",
+  blue = "#0087d7",
+  red = "#ec5f67",
+  violet = "#a9a1e1",
+}
+
+local mode_colors = {
+	c  = colors.magenta, ['!'] = colors.red,
+	i  = colors.green,   ic    = colors.yellow, ix     = colors.yellow,
+	n  = colors.blue,
+	no = colors.blue,    nov   = colors.blue,   noV    = colors.blue,
+	r  = colors.cyan,    rm    = colors.cyan,   ['r?'] = colors.cyan,
+	R  = colors.purple,  Rv    = colors.purple,
+	s  = colors.orange,  S     = colors.orange, ['']   = colors.orange,
+	t  = colors.purple,
+	v  = colors.red,     V     = colors.red,
+}
+
+local mode_icons = {
+	c = '🅒 ', ['!'] = '🅒 ',
+	i = '🅘 ', ic    = '🅘 ', ix     = '🅘 ',
+	n = '🅝 ',
+	R = '🅡 ', Rv    = '🅡 ',
+	r = '🅡 ', rm    = '🅡 ', ['r?'] = '🅡 ',
+	s = '🅢 ', S     = '🅢 ',
+	t = '🅣 ',
+	v = '🅥 ', V     = '🅥 ', ['']   = '🅥 ',
+}
+
+local num_icons = {'➊ ', '❷ ', '➌ ', '➍ ', '➎ ', '➏ ', '➐ ', '➑ ', '➒ ', 'ﳁ '}
 
 local function get_filename()
   local file = vim.fn.expand('%:.')
@@ -46,38 +86,18 @@ gls.left[1] = {
 gls.left[2] = {
   ViMode = {
     provider = function()
-      -- auto change color according the vim mode
-      local mode_color = {
-        n      = colors.red,
-        i      = colors.green,
-        v      = colors.blue,
-        V      = colors.blue,
-        c      = colors.magenta,
-        no     = colors.red,
-        s      = colors.orange,
-        S      = colors.orange,
-        ['']   = colors.orange,
-        ic     = colors.yellow,
-        R      = colors.violet,
-        Rv     = colors.violet,
-        cv     = colors.red,
-        ce     = colors.red,
-        r      = colors.cyan,
-        rm     = colors.cyan,
-        ['r?'] = colors.cyan,
-        ['!']  = colors.red,
-        t      = colors.red,
-      }
-      local text = '  '
       local color = ''
-      if mode_color[vim.fn.mode()] == nil then
-        color = 'Grey30'
+      local icon = ''
+      if mode_colors[vim.fn.mode()] == nil then
+        color = mode_colors['']
+        icon = mode_icons['']
       else
-        color = mode_color[vim.fn.mode()]
+        color = mode_colors[vim.fn.mode()]
+        icon = mode_icons[vim.fn.mode()]
       end
 
       vim.api.nvim_command('hi GalaxyViMode guifg=' .. color .. ' guibg=' .. colors.bg)
-      return text
+      return icon .. num_icons[math.min(10, provider_buffer.get_buffer_number())]
     end,
   },
 }
@@ -86,7 +106,7 @@ gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = condition.buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+    highlight = {provider_fileinfo.get_file_icon_color,colors.bg},
   },
 }
 
