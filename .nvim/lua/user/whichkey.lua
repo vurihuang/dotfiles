@@ -132,6 +132,7 @@ local mappings = {
     i    = { '<cmd>PackerInstall<cr>', 'Install' },
     s    = { '<cmd>PackerSync<cr>', 'Sync' },
     S    = { '<cmd>PackerStatus<cr>', 'Status' },
+    c    = { '<cmd>PackerClean<cr>', 'Clean' }
   },
 
   s = {
@@ -159,6 +160,7 @@ local mappings = {
     h     = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Terminal Horizontal' },
     v     = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', 'Terminal Vertical'},
     g     = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'LazyGit' },
+    r     = { '<cmd>lua _RANGER_TOGGLE()<cr>', 'Ranger' },
     ['1'] = { '<cmd>BufferLineGoToBuffer 1<cr>', 'Tab 1' },
     ['2'] = { '<cmd>BufferLineGoToBuffer 2<cr>', 'Tab 2' },
     ['3'] = { '<cmd>BufferLineGoToBuffer 3<cr>', 'Tab 3' },

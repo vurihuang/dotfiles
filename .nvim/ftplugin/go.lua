@@ -1,12 +1,12 @@
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap('n', '<F5>', '<cmd>GoDebugTestFunc<cr>', opts)
-
 local status_ok, wk = pcall(require, 'which-key')
 if not status_ok then
   return
 end
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap('n', '<F5>', '<cmd>GoDebugTestFunc<cr>', opts)
 
 local mappings = {
   d = {

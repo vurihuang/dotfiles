@@ -164,10 +164,11 @@ return packer.startup(function(use)
 
   ---- some plugins have been tried, make a snapshot list for some day.
   -- use 'nathanaelkane/vim-indent-guides' -- make the indent has block color.
+  -- use 'lukas-reineke/headlines.nvim' -- horizontal highlights for text filetypes.
 
   ---- wait for try
-  -- 'tamago324/nlsp-settings.nvim'
-  -- 'jose-elias-alvarez/null-ls.nvim'
+  -- 'tamago324/nlsp-settings.nvim' -- configure lsp using json files.
+  -- 'jose-elias-alvarez/null-ls.nvim' -- inject lsp diagnostics, code actions, etc..
   -- 'nvim-pack/nvim-spectre' -- regex search panel
   -- 'ThePrimeagen/harpoon'
   -- 'nyngwang/NeoZoom.lua'

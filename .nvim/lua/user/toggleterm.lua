@@ -43,3 +43,11 @@ function _LAZYGIT_TOGGLE()
   lazygit:toggle()
 end
 
+local ranger = terminal:new {
+  cmd = 'ranger',
+  hidden = true,
+}
+
+function _RANGER_TOGGLE()
+  ranger:toggle()
+end

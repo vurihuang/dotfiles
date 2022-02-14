@@ -10,6 +10,6 @@ vim.g['lazygit_use_neovim_remote']              = 1 -- for neovim-remote support
 
 vim.cmd [[
   highlight GitGutterAdd    guifg=#009900 ctermfg=2
-  highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+  highlight GitGutterChange guifg=#A3E28B ctermfg=3
   highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 ]]
