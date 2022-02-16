@@ -3,7 +3,7 @@
 
 local opts = {
   bookmark_sign                    = "",
-  bookmark_no_default_key_mappings = 11,
+  bookmark_no_default_key_mappings = 1,
   bookmark_auto_save               = 1,
   bookmark_auto_close              = 0,
   bookmark_manage_per_buffer       = 0,
