@@ -118,6 +118,7 @@ return packer.startup(function(use)
   }
   use 'dstein64/vim-startuptime'
   use 'voldikss/vim-translator'
+  use 'simeji/winresizer'
 
   -- lsp
   use 'neovim/nvim-lspconfig'

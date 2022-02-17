@@ -34,6 +34,7 @@ require('user.translator')
 require('user.telescope')
 require('user.toggleterm')
 require('user.treesitter')
+require('user.winresizer')
 require('user.zen')
 
 require('user.keymaps')

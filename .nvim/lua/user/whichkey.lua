@@ -182,11 +182,8 @@ local mappings = {
     q           = { '<cmd>qa<cr>', 'Quit' },
     o           = { '<c-w>w', 'Window switch' },
     z           = { '<cmd>ZenMode<cr>', 'Window zen mode' },
-    ['<up>']    = {'<cmd>resize +5<cr>', 'Window resize up'},
-    ['<down>']  = {'<cmd>resize -5<cr>', 'Window resize down'},
-    ['<left>']  = {'<cmd>vertical resize +5<cr>', 'Window resize left'},
-    ['<right>'] = {'<cmd>vertical resize -5<cr>', 'Window resize right'},
- },
+    r           = { '<cmd>WinResizerStartResize<cr>', 'Window resize mode' }, -- resizing the window by h,j,k,l key.
+  },
   m = {
     name = 'Bookmark',
     m    = { '<cmd>BookmarkToggle<cr>', 'Bookmark Toggle' },
@@ -209,34 +206,26 @@ local mappings = {
     w    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/whichkey.lua<cr>', 'Open whichkey' },
     i    = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
     o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
+    r    = { '<cmd>source %<cr>', 'Reload current file' },
   },
   ['/'] = { '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', 'Comment' },
   ['?'] = { '<cmd>Cheatsheet<cr>', 'Cheatsheet' },
 }
 
-
-local x_mappings = {
+local v_mappings = {
   a       = {
     name  = 'Align',
     ['='] = { "<esc><cmd>'<,'>EasyAlign*=<cr>", 'Align with =' }
   },
-}
-
-local x_opts = {
- mode        = 'x',
- prefix      = '<leader>',
- buffer      = nil,
- silent      = true,
- noremap     = true,
- nowait      = true,
-}
-
-local v_mappings = {
-  ['/'] = { '<Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', 'Comment' },
+  s       = {
+    name  = 'Search',
+    t     = { "<esc><cmd>'<,'>TranslateW<cr>", 'Translate' },
+  },
+  ['/']   = { '<Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', 'Comment' },
 }
 local v_opts = {
-  mode    = "v", -- VISUAL mode
-  prefix  = "<leader>",
+  mode    = 'v', -- VISUAL mode
+  prefix  = '<leader>',
   buffer  = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent  = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
@@ -246,5 +235,4 @@ local v_opts = {
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(v_mappings, v_opts)
-which_key.register(x_mappings, x_opts)
 
