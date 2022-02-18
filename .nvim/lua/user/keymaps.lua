@@ -1,16 +1,17 @@
-vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
-
+local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-local keymap = vim.api.nvim_set_keymap
-
+keymap('n', ';', ':', { noremap = true })
 keymap('', '<space>', '<nop>', opts)
 keymap('', '<F1>', '<nop>', opts)
+keymap('i', '<F1>', '<nop>', opts)
+
+-- leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- navigation
 keymap('i', 'jk', '<esc>', opts)
-
 keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
 
