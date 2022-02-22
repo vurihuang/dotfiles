@@ -61,6 +61,7 @@ cmp.setup({
         nvim_lsp = '[Lsp]',
         nvim_lua = '[Lua]',
         buffer = '[Buf]',
+        luasnip = '[Snippet]',
       })[entry.source.name]
       return vim_item
     end,
@@ -122,8 +123,9 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'cmp_tabnine' },
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
+    { name = 'nvim_lua' },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {

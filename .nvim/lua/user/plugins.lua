@@ -54,7 +54,6 @@ return packer.startup(function(use)
 
   -- style
   use 'kien/rainbow_parentheses.vim'
-  use 'ojroques/vim-scrollstatus'
   use 'NTBBloodbath/galaxyline.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'lukas-reineke/indent-blankline.nvim'
@@ -119,6 +118,7 @@ return packer.startup(function(use)
   use 'dstein64/vim-startuptime'
   use 'voldikss/vim-translator'
   use 'simeji/winresizer'
+  use 'nacro90/numb.nvim'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -148,6 +148,7 @@ return packer.startup(function(use)
   -- snippet
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
   -- language
   -- go
@@ -167,6 +168,8 @@ return packer.startup(function(use)
   ---- some plugins have been tried, make a snapshot list for some day.
   -- use 'nathanaelkane/vim-indent-guides' -- make the indent has block color.
   -- use 'lukas-reineke/headlines.nvim' -- horizontal highlights for text filetypes.
+  -- use 'dstein64/nvim-scrollview' -- scrollbar
+  -- use 'anuvyklack/pretty-fold.nvim' -- fold
 
   ---- wait for try
   -- 'tamago324/nlsp-settings.nvim' -- configure lsp using json files.

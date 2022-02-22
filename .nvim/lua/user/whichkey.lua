@@ -207,6 +207,7 @@ local mappings = {
     i    = { '<cmd>e $HOME/dotfiles/.nvim/init.lua<cr>', 'Open init' },
     o    = { '<cmd>e $HOME/dotfiles/.nvim/lua/user/options.lua<cr>', 'Open options' },
     r    = { '<cmd>source %<cr>', 'Reload current file' },
+    S    = { '<cmd>StartupTime<cr>', 'Show startup spent time' },
   },
   ['/'] = { '<Cmd>lua require("Comment.api").call("toggle_current_linewise_op")<CR>g@$', 'Comment' },
   ['?'] = { '<cmd>Cheatsheet<cr>', 'Cheatsheet' },
