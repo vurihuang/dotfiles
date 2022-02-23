@@ -49,7 +49,7 @@ return packer.startup(function(use)
 
   -- git plugins
   use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter' -- shows a git diff in the sign column.
+  use 'airblade/vim-gitgutter' -- shows a git diff in the sign column
   use 'lewis6991/gitsigns.nvim'
 
   -- style
@@ -64,7 +64,7 @@ return packer.startup(function(use)
   use 'stevearc/dressing.nvim' -- improve the default vim.ui interfaces
   use 'akinsho/bufferline.nvim'
   use 'goolord/alpha-nvim'
-  use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar.
+  use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar
   use 'ThemerCorp/themer.lua' -- simple, minimal highlighter plugin
 
   -- navigation
@@ -100,7 +100,7 @@ return packer.startup(function(use)
   use 'tpope/vim-surround' -- change and add parentheses, brackets, quotes, etc.. surroundings in pairs
   use 'nvim-lua/plenary.nvim'
   use 'famiu/bufdelete.nvim' -- delete buffer without losing the window layout
-  use 'lewis6991/impatient.nvim'
+  use 'lewis6991/impatient.nvim' -- speed up loading lua modules to improve startup time
   use 'MattesGroeger/vim-bookmarks'
   use 'tom-anders/telescope-vim-bookmarks.nvim'
   use 'nvim-lua/popup.nvim'
@@ -165,11 +165,15 @@ return packer.startup(function(use)
 
   use 'folke/which-key.nvim'
 
+  ---- backlog
   ---- some plugins have been tried, make a snapshot list for some day.
   -- use 'nathanaelkane/vim-indent-guides' -- make the indent has block color.
   -- use 'lukas-reineke/headlines.nvim' -- horizontal highlights for text filetypes.
   -- use 'dstein64/nvim-scrollview' -- scrollbar
   -- use 'anuvyklack/pretty-fold.nvim' -- fold
+  -- use 'gelguy/wilder.nvim' -- adds new features and capabilities to wildmenu
+  -- use 'roxma/nvim-yarp'
+  -- use 'roxma/vim-hug-neovim-rpc'
 
   ---- wait for try
   -- 'tamago324/nlsp-settings.nvim' -- configure lsp using json files.
