@@ -147,6 +147,7 @@ local mappings = {
     p    = { '<cmd>Telescope projects<cr>', 'Projects' },
     g    = { '<cmd>Telescope live_grep<cr>', 'Grep' },
     t    = { '<cmd>TranslateW<cr>', 'Translate' },
+    T    = { '<cmd>TodoTelescope<cr>', 'Todos' },
   },
 
   t = {

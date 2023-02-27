@@ -46,6 +46,8 @@ return packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'tanvirtin/monokai.nvim'
   use 'fatih/molokai'
+  use 'sainnhe/everforest'
+  use 'artanikin/vim-synthwave84'
 
   -- git plugins
   use 'tpope/vim-fugitive'
@@ -66,6 +68,11 @@ return packer.startup(function(use)
   use 'goolord/alpha-nvim'
   use 'SmiteshP/nvim-gps' -- show the context cursor position in status bar
   use 'ThemerCorp/themer.lua' -- simple, minimal highlighter plugin
+  use 'folke/todo-comments.nvim' -- highlight, list and search todo comments
+  use {
+    'mawkler/modicator.nvim',
+    after = 'ThemerCorp/themer.lua',
+  }
 
   -- navigation
   use 'psliwka/vim-smoothie'
@@ -120,6 +127,13 @@ return packer.startup(function(use)
   use 'simeji/winresizer'
   use 'nacro90/numb.nvim'
 
+  -- debug
+  use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
+  use "ravenxrz/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  use "nvim-telescope/telescope-dap.nvim"
+
   -- lsp
   use 'neovim/nvim-lspconfig'
   use 'tami5/lspsaga.nvim'
@@ -151,6 +165,11 @@ return packer.startup(function(use)
   use 'rafamadriz/friendly-snippets'
 
   -- language
+  -- use {
+  --   'tjdevries/sg.nvim',
+  --   run = 'cargo build --workspace',
+  --   requires = 'nvim-lua/plenary.nvim'
+  -- }
   -- go
   use 'fatih/vim-go'
   use 'dgryski/vim-godef'

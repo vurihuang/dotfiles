@@ -1,6 +1,8 @@
-vim.cmd[[colorscheme molokai]]
+-- vim.cmd[[colorscheme molokai]]
 -- vim.cmd[[colorscheme gruvbox]]
 -- vim.cmd[[colorscheme zephyr]]
+-- vim.cmd[[colorscheme themer_dracula]]
+vim.cmd[[colorscheme synthwave84]]
 
 vim.cmd[[
   hi Comment guifg=#5C6370 ctermfg=59

@@ -37,7 +37,7 @@ local tree_cb = nvimtreeconfig.nvim_tree_callback
 
 nvimtree.setup {
   -- disables netrw completely
-  disable_netrw       = false,
+  disable_netrw       = true,
   -- hijack netrw window on startup
   hijack_netrw        = true,
   -- open the tree when running this setup function
@@ -61,7 +61,7 @@ nvimtree.setup {
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
-  update_cwd          = true,
+  update_cwd          = false,
   -- show lsp diagnostics in the signcolumn
   -- lsp_diagnostics     = false,
   diagnostics = {
@@ -139,7 +139,8 @@ nvimtree.setup {
         --{ key = "s",                            cb = tree_cb("system_open") },
         --{ key = "s",                            cb = tree_cb("close") },
         { key = {"q"},                          cb          = tree_cb("close") },
-        { key = "?",                           cb           = tree_cb("toggle_help") },
+        { key = "?",                           cb = tree_cb("toggle_help") },
+        { key = 'X', cb                           = ":lua require'nvim-tree.lib'.collapse_all()<cr>" },
       }
     }
   }
