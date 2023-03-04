@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,7 +11,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/vuri/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -110,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh settings.
 DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_AUTO_UPDATE="true"
 
 export ZPLUG_HOME="$HOME/.zplug"
 if [[ ! -d "$ZPLUG_HOME" ]]; then
@@ -133,10 +136,13 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'plugins/git', from:oh-my-zsh, if:'which git'
 zplug 'agkozak/zsh-z'
 zplug 'romkatv/powerlevel10k', use:powerlevel10k.zsh-theme
-zplug 'zsh-users/zsh-autosuggestions'
+zplug 'Aloxaf/fzf-tab', defer:1
+zplug 'zsh-users/zsh-autosuggestions', defer:2
 zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'joshskidmore/zsh-fzf-history-search', defer:2
+zplug jonmosco/kube-ps1, defer:2
 
 # sindresorhus/pure
 
@@ -187,18 +193,6 @@ function code {
     fi
 }
 
-function enableProxy() {
-  export HTTP_PROXY=http://localhost:8123
-  export HTTPS_PROXY=$HTTP_PROXY
-  export NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24
-}
-
-function disableProxy() {
-    unset HTTP_PROXY
-    unset HTTPS_PROXY
-    unset NO_PROXY
-}
-
 function disableGoModule() {
     export GO111MODULE=off
 }
@@ -207,16 +201,58 @@ function enableGoModule() {
     export GO111MODULE=auto
 }
 
-enableProxy
 eval $(thefuck --alias)
 
 [ -f "$HOME/.privaterc" ] && source "$HOME/.privaterc"
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude '{.git,node_modules,__pycache__,.github}'"
+export PATH="${PATH}:${HOME}/.krew/bin"
+export ANSIBLE_CONFIG="${HOME}/.ansible/ansible.cfg"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$(brew --prefix)/Cellar/openresty/1.19.9.1_2/nginx/sbin:$PATH"
 
 # Proxy daemon
 [[ $(ps -ef | grep polipo | grep -v "grep" | wc -l) -eq 0 ]] && proxyd
+
+function xbin() {
+  command="$1"
+  args="${@:2}"
+  if [ -t 0 ]; then
+    curl -X POST "https://xbin.io/${command}" -H "X-Args: ${args}"
+  else
+    curl --data-binary @- "https://xbin.io/${command}" -H "X-Args: ${args}"
+  fi
+}
+
+# kubernetes switch.
+INSTALLATION_PATH=$(brew --prefix switch) && source $INSTALLATION_PATH/switch.sh
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+
+source "$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
+PROMPT='$(kube_ps1)'$PROMPT
+#https://github.com/jonmosco/kube-ps1/issues/56
+prompt_kube_ps1(){
+   echo -n `kube_ps1`
+}
+
+#https://github.com/romkatv/powerlevel10k#why-some-prompt-segments-appear-and-disappear-as-im-typing
+function kube-toggle() {
+  if (( ${+POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND} )); then
+    unset POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
+  else
+    POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent'
+  fi
+  p10k reload
+  if zle; then
+    zle push-input
+    zle accept-line
+  fi
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source <(kubectl completion zsh)
+source ~/.kubectl_fzf.plugin.zsh
