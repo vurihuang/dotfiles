@@ -30,15 +30,25 @@ map("n", "<leader>wh", "<C-w>h", { desc = "Go to left window" })
 map("n", "<leader>wj", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<leader>wk", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<leader>wl", "<C-w>l", { desc = "Go to right window" })
+map("n", "<leader>wz", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 
 -- tabs/Telescope
-map("n", "<leader>tp", "<cmd>bp<cr>", { desc = "Previous tab" })
-map("n", "<leader>tn", "<cmd>bn<cr>", { desc = "Next tab" })
-map("n", "<leader>tl", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+-- map("n", "<leader>tp", "<cmd>bp<cr>", { desc = "Previous tab" })
+-- map("n", "<leader>tn", "<cmd>bn<cr>", { desc = "Next tab" })
+-- map("n", "<leader>tl", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 -- map("n", "<leader>to", '<cmd>exe "tabn ".g:lasttab<cr>', { desc = "Switch to last tab" })
-map("n", "<leader>tN", "<cmd>tabnew<cr>", { desc = "New tab" })
+-- map("n", "<leader>tN", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "<leader>tt", "<cmd>Telescope<cr>", { desc = "Telescope" })
-map("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close tab" })
+
+-- buffers
+map("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous buffer" })
+map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
+map("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>bN", "<cmd>ene<cr>", { desc = "New buffer" })
+
+-- code
+map("n", "<leader>cF", "<cmd>lua require('ufo').closeAllFolds()<cr>", { desc = "Fold" })
+map("n", "<leader>cU", "<cmd>lua require('ufo').openAllFolds()<cr>", { desc = "Unfold" })
 
 -- lsp
 map(
