@@ -1,21 +1,49 @@
+alias bat='bat --style=plain'
+export PAGER=bat
+
 alias r=ranger
-alias k=kubectl
+
+# git
 alias gd='git diff'
 alias gdiff='git icdiff'
+alias gdh='git diff HEAD^'
+
 alias consuld="nohup consul agent --dev > /dev/null &"
 alias cht='cht.sh'
-alias json='python -m json.tool'
 alias mk='minikube'
 alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
-alias gdh='git diff HEAD^'
 alias lg='lazygit'
 alias ts='tig status'
+alias c='colima'
+alias matcha="matcha -t -c $HOME/.config/matcha/config.yaml | bat --language md"
+alias fzf='fzf --height=40%'
 
-if type $HOME/soft/nvim/bin/nvim > /dev/null 2>&1; then
-    alias nvim="$HOME/soft/nvim/bin/nvim"
-    alias vi='nvim'
+NVIM_PATH="$HOME/soft/nvim-v0.9.1/bin/nvim"
+
+if type $HOME/soft/nvim/bin/nvim >/dev/null 2>&1; then
+	#alias nvim="$HOME/soft/nvim/bin/nvim"
+	alias nvim=$NVIM_PATH
+	alias vi='nvim'
 fi
 
 alias uuid="uuidgen | pbcopy"
-
 alias hf='history | fzf'
+alias nginxd="nginx -p $HOME/workspace/openresty/ -c conf/nginx.conf"
+alias gi='gitui'
+
+function urldecode() {
+	printf "%s" $(echo $1 | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));")
+}
+
+function wps() {
+	open -a "/Applications/wpsoffice.app" $1
+}
+
+export EDITOR=$NVIM_PATH
+
+# export FZF_CTRL_R_OPTS="
+#   --preview 'echo {}' --preview-window up:3:hidden:wrap
+#   --bind 'ctrl-/:toggle-preview'
+#   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+#   --color header:italic
+#   --header 'Press CTRL-Y to copy command into clipboard'"
