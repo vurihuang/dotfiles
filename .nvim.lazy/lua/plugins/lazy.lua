@@ -2,7 +2,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "middlenight_blue",
+      -- colorscheme = "middlenight_blue",
+      colorscheme = "rose-pine",
       icons = {
         kinds = {
           Array = " ",
