@@ -24,6 +24,7 @@ map("n", "<C-l>", "<nop>")
 -- file/find
 map("n", "<leader>fl", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>fj", "<cmd>%!jq .<cr>", { desc = "Format json" })
 
 -- windows
 map("n", "<leader>wh", "<C-w>h", { desc = "Go to left window" })
@@ -63,3 +64,5 @@ map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", { desc = "References
 map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "References pinned" })
 
 --map("n", ";", ":", { desc = "" })
+
+map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit" })
