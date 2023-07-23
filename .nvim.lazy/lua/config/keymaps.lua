@@ -42,9 +42,8 @@ map("n", "<leader>wz", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 map("n", "<leader>tt", "<cmd>Telescope<cr>", { desc = "Telescope" })
 
 -- buffers
-map("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous buffer" })
-map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
-map("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+-- map("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
+-- map("n", "<leader>bl", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>bN", "<cmd>ene<cr>", { desc = "New buffer" })
 
 -- code
@@ -62,6 +61,9 @@ map("n", "<leader>lV", '<cmd>lua require("goto-preview").close_all_win()<cr>', {
 map("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Definition" })
 map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", { desc = "References" })
 map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "References pinned" })
+
+-- ui
+map("n", "<leader>ut", "<cmd>TransparentToggle<cr>", { desc = "Transparent" })
 
 --map("n", ";", ":", { desc = "" })
 
