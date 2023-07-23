@@ -7,6 +7,7 @@ alias r=ranger
 alias gd='git diff'
 alias gdiff='git icdiff'
 alias gdh='git diff HEAD^'
+alias gui='gitui'
 
 alias consuld="nohup consul agent --dev > /dev/null &"
 alias cht='cht.sh'
@@ -17,6 +18,8 @@ alias ts='tig status'
 alias c='colima'
 alias matcha="matcha -t -c $HOME/.config/matcha/config.yaml | bat --language md"
 alias fzf='fzf --height=40%'
+alias ls='lsd'
+alias yamlf="bat -l yaml"
 
 NVIM_PATH="$HOME/soft/nvim-v0.9.1/bin/nvim"
 

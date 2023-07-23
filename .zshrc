@@ -271,3 +271,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(kubectl completion zsh)
 source ~/.kubectl_fzf.plugin.zsh
+source $HOME/.zsh_plugins/fzf.zsh
