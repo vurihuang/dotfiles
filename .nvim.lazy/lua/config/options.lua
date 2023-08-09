@@ -4,5 +4,5 @@
 
 local opt = vim.opt
 opt.relativenumber = false
-opt.guicursor = "n-v-c-sm:block"
+-- opt.guicursor = "n-v-c-sm:block"
 opt.conceallevel = 0
