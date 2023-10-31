@@ -7,5 +7,9 @@
 .tmux/plugins/*
 **/__pycache__/*
 
+# nvim
 .nvim/plugin/packer_compiled.lua
 */.bookmarks
+
+# emacs
+.emacs.d/.spacemacs.env
