@@ -1,0 +1,17 @@
+* Emacs
+
+** Install
+
+#+begin_src sh
+# cd your dotfiles
+$ git clone https://github.com/syl20bnr/spacemacs $HOME/dotfiles/spacemacs
+$ ln -s $HOME/.config/emacs $HOME/dotfiles/spacemacs
+#+end_src
+
+** Setup
+
+#+begin_src sh
+$ ln -s $PWD/.spacemacs $HOME/.spacemacs
+$ ln -s $PWD/.spacemacs.env $HOME/.spacemacs.env
+#+end_src
+
