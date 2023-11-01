@@ -1,23 +1,7 @@
 ;; -*- coding: utf-8 -*-
-(setq cursor-type 'bar)
-(setq default-cursor-type 'bar)
-(setq evil-insert-state-cursor '("green" bar))
-(setq evil-emacs-state-cursor '("green" bar))
 (xclip-mode 1)
-;; keeping ~/.emacs.d clean
-(setq no-littering-etc-directory
-      (expand-file-name "config/" user-emacs-directory))
-(setq no-littering-var-directory
-      (expand-file-name "data/" user-emacs-directory))
-(require 'no-littering)
-(require 'recentf)
-(add-to-list 'recentf-exclude
-             (recentf-expand-file-name no-littering-var-directory))
-(add-to-list 'recentf-exclude
-             (recentf-expand-file-name no-littering-etc-directory))
 ;; (require 'treemacs-nerd-icons)
 ;; (treemacs-load-theme "nerd-icons")
-(setq org-src-window-setup 'split-window-below)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

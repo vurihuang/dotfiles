@@ -40,15 +40,18 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
+     dap
      emacs-lisp
      git
      (go :variables
          go-tab-widthtab-width 4
          go-format-before-save t
          godoc-at-point-function 'godoc-gogetdoc
-         go-test-command "go test -v")
+         go-test-command "go test -v"
+         go-backend 'lsp)
      helm
-     lsp
+     (lsp :variables
+          lsp-navigation 'peek)
      (markdown :variables markdown-live-preview-engine 'vmd)
      multiple-cursors
      (org :variables
@@ -593,9 +596,17 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
   (setq custom-file "~/dotfiles/.emacs.d/custom.el")
   (load custom-file :noerror)
-  (setq org-src-window-setup 'split-window-below)
+
+  (require 'init-littering)
+  (require 'init-org)
+  (require 'init-recentf)
+  (require 'init-ui)
+  (require 'init-vc-hooks)
+
 )
 
 
