@@ -32,15 +32,18 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(html
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
+     ;; 
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
      dap
+     (docker :variables
+             docker-dockerfile-backend 'lsp)
      emacs-lisp
      git
      (go :variables
@@ -50,13 +53,19 @@ This function should only modify configuration layer settings."
          go-test-command "go test -v"
          go-backend 'lsp)
      helm
+     html
+     javascript
+     (json :variables
+           json-fmt-tool 'web-beautify)
      (lsp :variables
-          lsp-navigation 'peek)
+          lsp-navigation 'peek
+          lsp-headerline-breadcrumb-segments '(project file symbols))
      (markdown :variables markdown-live-preview-engine 'vmd)
      multiple-cursors
      (org :variables
           org-enable-hugo-support t)
-     rust
+     (rust :variables
+           rustic-format-on-save t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -276,9 +285,11 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Hack Nerd Font"
-                               ;;"Menlo for Powerline"
-                               :size 22.0
+   dotspacemacs-default-font '(
+                               "Hack Nerd Font Mono"
+                               ;; "Menlo for Powerline"
+                               ;; "SFMono Nerd Font"
+                               :size 18.0
                                :weight normal
                                :width normal)
 
@@ -602,8 +613,10 @@ before packages are loaded."
   (load custom-file :noerror)
 
   (require 'init-littering)
+  (require 'init-lsp)
   (require 'init-org)
   (require 'init-recentf)
+  (require 'init-toml)
   (require 'init-ui)
   (require 'init-vc-hooks)
 
