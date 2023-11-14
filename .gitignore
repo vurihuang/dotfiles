@@ -12,4 +12,5 @@
 */.bookmarks
 
 # emacs
-.emacs.d/.spacemacs.env
+doomemacs.d/
+spacemacs.d/

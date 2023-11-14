@@ -44,6 +44,14 @@ function wps() {
 
 export EDITOR=$NVIM_PATH
 
+alias emacs="/Applications/EmacsX.app/Contents/MacOS/Emacs -nw"
+alias emacsclient="/Applications/EmacsX.app/Contents/MacOS/bin/emacsclient"
+alias ei="emacs -nw"
+alias emacs-daemon="ei --daemon"
+alias ec="emacsclient -nw"
+
+export PATH="$HOME/dotfiles/doomemacs.d/bin:$PATH"
+
 # export FZF_CTRL_R_OPTS="
 #   --preview 'echo {}' --preview-window up:3:hidden:wrap
 #   --bind 'ctrl-/:toggle-preview'

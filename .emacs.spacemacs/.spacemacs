@@ -225,7 +225,7 @@ It should only modify the values of Spacemacs settings."
    ;; pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
-   dotspacemacs-startup-lists '((recents . 5)
+   dotspacemacs-startup-lists '((recents . 10)
                                 (projects . 7))
 
    ;; True if the home buffer should respond to resize events. (default t)
@@ -609,7 +609,7 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-  (setq custom-file "~/dotfiles/.emacs.d/custom.el")
+  (setq custom-file "~/dotfiles/.emacs.spacemacs/custom.el")
   (load custom-file :noerror)
 
   (require 'init-littering)

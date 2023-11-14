@@ -1,7 +1,4 @@
 ;; -*- coding: utf-8 -*-
-(xclip-mode 1)
-;; (require 'treemacs-nerd-icons)
-;; (treemacs-load-theme "nerd-icons")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
