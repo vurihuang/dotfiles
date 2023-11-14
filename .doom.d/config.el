@@ -89,6 +89,31 @@
 
 (setq auto-save-default t
       make-backup-files t)
+
+;; Doom modeline settings.
+(after! doom-modeline
+  (setq doom-modeline-enable-word-count t
+        doom-modeline-header-line nil
+                                        ;doom-modeline-hud nil
+        doom-themes-padded-modeline t
+        doom-flatwhite-brighter-modeline nil
+        doom-plain-brighter-modeline nil)
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info vcs word-count)
+    '(buffer-position misc-info major-mode)))
+(add-hook! 'doom-modeline-mode-hook
+  (progn
+    (set-face-attribute 'header-line nil
+                        :background (face-background 'mode-line)
+                        :foreground (face-foreground 'mode-line))
+    ))
+
+;; Pretty treemacs.
+(add-hook! 'after-init-hook #'treemacs)
+(after! treemacs
+  (add-hook! 'treemacs-mode-hook (setq window-divider-mode -1
+                                       variable-pitch-mode 1
+                                       treemacs-follow-mode 1)))
 ;; key bindings
 ;; it doesn't work yet.
 ;; (map! "<SPC-w />" #'split-window-horizontally)
