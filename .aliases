@@ -58,3 +58,6 @@ export PATH="$HOME/dotfiles/doomemacs.d/bin:$PATH"
 #   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
 #   --color header:italic
 #   --header 'Press CTRL-Y to copy command into clipboard'"
+
+export LC_ALL=zh_CN.UTF-8
+export LANG=zh_CN.UTF-8

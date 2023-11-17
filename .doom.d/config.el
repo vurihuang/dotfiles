@@ -35,85 +35,6 @@
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-dracula)
 
-(setq packages-archives
-      '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-        ;; to solve the problem of Org-contrib is unavailable
-        ;; ref: https://github.com/syl20bnr/spacemacs/issues/14948
-        ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
-
-(use-package! doom-themes
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-dracula t)
-
-  ;; Enable flashing mode-line on errors
-  ;; (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-dracula") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-;; (setq org-directory "~/org/")
-
-(setq-default cache-long-scans nil)
-
-(setq doom-font (font-spec :family "Menlo for Powerline" :size 18 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Menlo for Powerline" :size 16)
-      doom-symbol-font (font-spec :family "Menlo for Powerline")
-      doom-big-font (font-spec :family "Menlo for Powerline" :size 24))
-
-;; Maximize the window on startup.
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
-
-;; Do not confirm while quit he emacs.
-(setq confirm-kill-emacs nil)
-
-(setq doom-modeline-enable-word-count t)
-
-;; org
-(after! org
-  (setq org-startup-indented nil))
-
-(setq auto-save-default t
-      make-backup-files t)
-
-;; Doom modeline settings.
-(after! doom-modeline
-  (setq doom-modeline-enable-word-count t
-        doom-modeline-header-line nil
-                                        ;doom-modeline-hud nil
-        doom-themes-padded-modeline t
-        doom-flatwhite-brighter-modeline nil
-        doom-plain-brighter-modeline nil)
-  (doom-modeline-def-modeline 'main
-    '(bar matches buffer-info vcs word-count)
-    '(buffer-position misc-info major-mode)))
-(add-hook! 'doom-modeline-mode-hook
-  (progn
-    (set-face-attribute 'header-line nil
-                        :background (face-background 'mode-line)
-                        :foreground (face-foreground 'mode-line))
-    ))
-
-;; Pretty treemacs.
-(add-hook! 'after-init-hook #'treemacs)
-(after! treemacs
-  (add-hook! 'treemacs-mode-hook (setq window-divider-mode -1
-                                       variable-pitch-mode 1
-                                       treemacs-follow-mode 1)))
 ;; key bindings
 ;; it doesn't work yet.
 ;; (map! "<SPC-w />" #'split-window-horizontally)
@@ -150,3 +71,140 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(setq packages-archives
+      '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ;; to solve the problem of Org-contrib is unavailable
+        ;; ref: https://github.com/syl20bnr/spacemacs/issues/14948
+        ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
+
+;; Style
+(use-package! doom-themes
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dracula t)
+
+  ;; Enable flashing mode-line on errors
+  ;; (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-dracula") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+;; (setq org-directory "~/org/")
+
+
+;; fonts
+(setq doom-font (font-spec :family "Menlo for Powerline" :size 18 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "Menlo for Powerline" :size 16)
+      doom-symbol-font (font-spec :family "Menlo for Powerline")
+      doom-big-font (font-spec :family "Menlo for Powerline" :size 24))
+
+;; Maximize the window on startup.
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+(setq-default cache-long-scans nil)
+
+(setq
+ confirm-kill-emacs nil ;; do not confirm while quit he emacs
+
+ scroll-margin 5 ;; auto-hscroll-mode 'current-line
+
+
+ ;; enable auto save
+ auto-save-default t
+ make-backup-files t
+
+ ;; localleader key
+ evil-snipe-override-evil-repeat-keys nil
+ doom-localleader-key ","
+ doom-localleader-alt-key "M-,"
+
+ ;; whichkey
+ which-key-idle-delay 0.2
+ )
+
+;; Doom modeline
+(after! doom-modeline-mode
+  (setq doom-modeline-enable-word-count t)
+  )
+
+;; Doom modeline settings.
+;; (after! doom-modeline
+;;   (setq doom-modeline-enable-word-count t
+;;         doom-modeline-header-line nil
+;;                                         ;doom-modeline-hud nil
+;;         doom-themes-padded-modeline t
+;;         doom-flatwhite-brighter-modeline nil
+;;         doom-plain-brighter-modeline nil)
+;;   (doom-modeline-def-modeline 'main
+;;     '(bar matches buffer-info vcs word-count)
+;;     '(buffer-position misc-info major-mode)))
+;; (add-hook! 'doom-modeline-mode-hook
+;;   (progn
+;;     (set-face-attribute 'header-line nil
+;;                         :background (face-background 'mode-line)
+;;                         :foreground (face-foreground 'mode-line))
+;;    ))
+
+;; Treemacs
+;; pretty treemacs
+;; (add-hook! 'after-init-hook #'treemacs)
+(after! treemacs
+  (add-hook! 'treemacs-mode-hook (setq window-divider-mode -1
+                                       variable-pitch-mode 1
+                                       treemacs-follow-mode 1)))
+
+;; Lang:org
+(after! org
+  (setq org-startup-indented nil))
+
+;; Lang:go
+;; organize imports
+(after! go-mode
+  (add-hook 'go-mode-hook #'lsp-deferred)
+  (defun lsp-go-install-save-hooks ()
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+  )
+;; analyzers
+(after! lsp-mode
+  (setq lsp-go-analyses '((fieldalignment . t) ;; find structs that would use less memory if their fields were sorted
+                          (nilness . t) ;; check for redundant or impossible nil comparisons
+                          (shadow . t) ;; check for possible unintended shadowing of variables
+                          (unusedparams . t) ;; check for unused parameters of functions
+                          (unusedwrite . t) ;; checks for unused writes
+                          (useany . t) ;; check for constraints that could be simplifed to `any`
+                          (unusedvariable . t) ;; check for unused variables
+                          ))
+  )
+
+;; Lang:sh
+(add-to-list 'auto-mode-alist '("\\.aliases\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.privaterc\\'" . sh-mode))
+
+;; Shortcuts
+(map!
+ ;; selection
+ :v "v" #'er/expand-region
+
+ :leader
+ :desc "Buffers" "SPC" #'helm-buffers-list
+
+ ;; override the Eval-expression shortcut cuz didn't use it frequently
+ (:prefix-map (";" . "regular")
+  :desc "Buffers" "b" #'helm-buffers-list)
+ )
