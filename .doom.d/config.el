@@ -208,3 +208,5 @@
  (:prefix-map (";" . "regular")
   :desc "Buffers" "b" #'helm-buffers-list)
  )
+
+(turn-on-pbcopy) ;; enable copy to system clipboard
