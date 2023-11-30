@@ -108,10 +108,10 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "Menlo for Powerline" :size 18 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Menlo for Powerline" :size 16)
-      doom-symbol-font (font-spec :family "Menlo for Powerline")
-      doom-big-font (font-spec :family "Menlo for Powerline" :size 24))
+(setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 22 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font Mono" :size 22)
+      doom-symbol-font (font-spec :family "MesloLGS Nerd Font Mono")
+      doom-big-font (font-spec :family "MesloLGS Nerd Font Mono" :size 24))
 
 ;; Maximize the window on startup.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -135,18 +135,26 @@
 
  ;; whichkey
  which-key-idle-delay 0.2
+
+ ;; visiting a symbolink
+ find-file-visit-truename t
  )
 
 ;; Doom modeline
 (after! doom-modeline-mode
-  (setq doom-modeline-enable-word-count t)
+  (setq
+   doom-modeline-enable-word-count t
+
+   doom-modeline-buffer-file-name-style 'truncate-nil
+
+   doom-modeline-icon t)
   )
 
 ;; Doom modeline settings.
-;; (after! doom-modeline
+;; (after!Source Code Pro for Powerline doom-modeline
 ;;   (setq doom-modeline-enable-word-count t
-;;         doom-modeline-header-line nil
-;;                                         ;doom-modeline-hud nil
+;;         ;doom-modeline-header-line nil
+;;         ;doom-modeline-hud niHack Nerd Font Monol
 ;;         doom-themes-padded-modeline t
 ;;         doom-flatwhite-brighter-modeline nil
 ;;         doom-plain-brighter-modeline nil)
@@ -195,6 +203,7 @@
 ;; Lang:sh
 (add-to-list 'auto-mode-alist '("\\.aliases\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.privaterc\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.cheat\\'" . sh-mode))
 
 ;; Shortcuts
 (map!
