@@ -267,6 +267,9 @@ kube-toggle
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+# Install navi widget.(Press ctrl+g to launch navi.)
+eval "$(navi widget zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(kubectl completion zsh)
