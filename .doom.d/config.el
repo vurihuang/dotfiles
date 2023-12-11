@@ -35,11 +35,6 @@
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-dracula)
 
-;; key bindings
-;; it doesn't work yet.
-;; (map! "<SPC-w />" #'split-window-horizontally)
-;; (map! "<SPC-w ->" #'split-window-vertically)
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -108,10 +103,10 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 22 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font Mono" :size 22)
+(setq doom-font (font-spec :family "Hack" :size 24)
+      doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font Mono" :size 24)
       doom-symbol-font (font-spec :family "MesloLGS Nerd Font Mono")
-      doom-big-font (font-spec :family "MesloLGS Nerd Font Mono" :size 24))
+      doom-big-font (font-spec :family "MesloLGS Nerd Font Mono" :size 26))
 
 ;; Maximize the window on startup.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -128,7 +123,7 @@
  auto-save-default t
  make-backup-files t
 
- ;; localleader key
+ ;; localleader keys
  evil-snipe-override-evil-repeat-keys nil
  doom-localleader-key ","
  doom-localleader-alt-key "M-,"
@@ -200,8 +195,13 @@
                           ))
   )
 
+;; hybrid evil and emacs keybindigs
+(setq evil-disable-insert-state-bindings t)
+(defalias 'evil-insert-state 'evil-emacs-state)
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
+
 ;; Lang:sh
-(add-to-list 'auto-mode-alist '("\\.aliases\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.*aliases\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.privaterc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.cheat\\'" . sh-mode))
 
