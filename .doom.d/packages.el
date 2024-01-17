@@ -51,3 +51,4 @@
 
 (package! cue-mode) ;; CUE language mode
 (package! pbcopy) ;; OS clipboard
+(package! catppuccin-theme)

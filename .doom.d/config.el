@@ -103,10 +103,16 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "Hack" :size 24)
+(setq doom-font (font-spec :family "Rec Mono Duotone" :size 24)
       doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font Mono" :size 24)
-      doom-symbol-font (font-spec :family "MesloLGS Nerd Font Mono")
-      doom-big-font (font-spec :family "MesloLGS Nerd Font Mono" :size 26))
+      doom-symbol-font (font-spec :family "Rec Mono Duotone")
+      doom-big-font (font-spec :family "Rec Mono Duotone" :size 26)
+      )
+
+;; italics in themes: https://github.com/doomemacs/themes/issues/248
+(set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
+(set-face-attribute 'font-lock-function-name-face nil :foreground "#c678dd" :slant 'italic)
+(set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea" :slant 'italic)
 
 ;; Maximize the window on startup.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
