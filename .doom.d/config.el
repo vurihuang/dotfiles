@@ -91,7 +91,18 @@
   (setq doom-themes-treemacs-theme "doom-dracula") ; use "doom-colors" for less minimal icon theme
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+  (doom-themes-org-config)
+
+  ;; For now mocha doesn't support font italic, haven't solved.
+  ;; (setq doom-theme 'catppuccin)
+
+  ;; italics in themes: https://github.com/doomemacs/themes/issues/248
+  (set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
+  (set-face-attribute 'font-lock-function-name-face nil :foreground "#c678dd" :slant 'italic)
+  (set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea" :slant 'italic)
+  ;; (set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea")
+  )
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -103,16 +114,12 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "Rec Mono Duotone" :size 24)
-      doom-variable-pitch-font (font-spec :family "MesloLGS Nerd Font Mono" :size 24)
-      doom-symbol-font (font-spec :family "Rec Mono Duotone")
-      doom-big-font (font-spec :family "Rec Mono Duotone" :size 26)
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 22)
+      doom-variable-pitch-font (font-spec :family "Hack Nerd Font" :size 22)
+      doom-symbol-font (font-spec :family "Hack Nerd Font")
+      doom-serif-font (font-spec :family "Hack Nerd Font" :size 22 :weight 'light)
+      doom-big-font (font-spec :family "Hack Nerd Font" :size 24)
       )
-
-;; italics in themes: https://github.com/doomemacs/themes/issues/248
-(set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
-(set-face-attribute 'font-lock-function-name-face nil :foreground "#c678dd" :slant 'italic)
-(set-face-attribute 'font-lock-variable-name-face nil :foreground "#dcaeea" :slant 'italic)
 
 ;; Maximize the window on startup.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -152,7 +159,7 @@
   )
 
 ;; Doom modeline settings.
-;; (after!Source Code Pro for Powerline doom-modeline
+;; (after! Source Code Pro for Powerline doom-modeline
 ;;   (setq doom-modeline-enable-word-count t
 ;;         ;doom-modeline-header-line nil
 ;;         ;doom-modeline-hud niHack Nerd Font Monol

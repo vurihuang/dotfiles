@@ -52,3 +52,5 @@
 (package! cue-mode) ;; CUE language mode
 (package! pbcopy) ;; OS clipboard
 (package! catppuccin-theme)
+;; issue from: https://github.com/doomemacs/doomemacs/issues/7568
+(unpin! apheleia)
