@@ -369,13 +369,7 @@ tmux_conf_copy_to_os_clipboard=true
 
 
 # -- tpm -----------------------------------------------------------------------
-
-# while I don't use tpm myself, many people requested official support so here
-# is a seamless integration that automatically installs plugins in parallel
-
-# whenever a plugin introduces a variable to be used in 'status-left' or
-# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
-# 'tmux_conf_theme_status_right' variables.
+# -- tpm --
 
 # by default, launching tmux will update tpm and all plugins
 #   - true (default)
@@ -392,6 +386,48 @@ tmux_conf_update_plugins_on_reload=true
 #   - true (default)
 #   - false
 tmux_conf_uninstall_plugins_on_reload=true
+
+# /!\ the tpm bindings differ slightly from upstream:
+#   - installing plugins: <prefix> + I
+#   - uninstalling plugins: <prefix> + Alt + u
+#   - updating plugins: <prefix> + u
+
+# List of plugins
+set -g @tpm_plugins 'dracula/tmux'
+
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @catppuccin_flavour 'mocha' # or frappe, macchiato, mocha(default)
+
+# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
+set -g @dracula-plugins "cpu-usage,network"
+set -g @dracula-show-powerline false
+set -g @dracula-cpu-usage-colors "pink dark_gray"
+set -g @dracula-border-contrast true
+
+# while I don't use tpm myself, many people requested official support so here
+# is a seamless integration that automatically installs plugins in parallel
+
+# whenever a plugin introduces a variable to be used in 'status-left' or
+# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
+# 'tmux_conf_theme_status_right' variables.
+
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+# tmux_conf_update_plugins_on_launch=true
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+# tmux_conf_update_plugins_on_reload=true
+
+# by default, reloading the configuration will uninstall tpm and plugins when no
+# plugins are enabled
+#   - true (default)
+#   - false
+# tmux_conf_uninstall_plugins_on_reload=true
 
 # /!\ the tpm bindings differ slightly from upstream:
 #   - installing plugins: <prefix> + I
@@ -443,7 +479,8 @@ set -g mode-keys vi
 set -ug prefix2
 unbind C-a
 unbind C-b
-set -g prefix C-a
+# set -g prefix C-a
+set -g prefix C-Space
 bind C-a send-prefix
 
 bind h select-pane -L
@@ -455,12 +492,3 @@ bind l select-pane -U
 unbind C-c
 
 set-option -sg escape-time 30
-
-set -g @tpm_plugins 'dracula/tmux'
-
-# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
-set -g @dracula-plugins "cpu-usage"
-set -g @dracula-show-powerline true
-set -g @dracula-cpu-usage-colors "pink dark_gray"
-set -g @dracula-border-contrast true
-
