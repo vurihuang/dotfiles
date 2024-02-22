@@ -75,6 +75,9 @@
         ;; ref: https://github.com/syl20bnr/spacemacs/issues/14948
         ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
 
+(use-package all-the-icons
+  :if (display-graphic-p))
+
 ;; Style
 (use-package! doom-themes
   :config
@@ -114,11 +117,11 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 22)
-      doom-variable-pitch-font (font-spec :family "Hack Nerd Font" :size 22)
-      doom-symbol-font (font-spec :family "Hack Nerd Font")
-      doom-serif-font (font-spec :family "Hack Nerd Font" :size 22 :weight 'light)
-      doom-big-font (font-spec :family "Hack Nerd Font" :size 24)
+(setq doom-font (font-spec :family "Rec Mono Duotone" :size 22)
+      doom-variable-pitch-font (font-spec :family "Rec Mono Duotone" :size 22)
+      doom-symbol-font (font-spec :family "Rec Mono Duotone")
+      doom-serif-font (font-spec :family "Rec Mono Duotone" :size 22 :weight 'light)
+      doom-big-font (font-spec :family "Rec Mono Duotone" :size 24)
       )
 
 ;; Maximize the window on startup.
@@ -162,7 +165,7 @@
 ;; (after! Source Code Pro for Powerline doom-modeline
 ;;   (setq doom-modeline-enable-word-count t
 ;;         ;doom-modeline-header-line nil
-;;         ;doom-modeline-hud niHack Nerd Font Monol
+;;         ;doom-modeline-hud nil
 ;;         doom-themes-padded-modeline t
 ;;         doom-flatwhite-brighter-modeline nil
 ;;         doom-plain-brighter-modeline nil)
