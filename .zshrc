@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -133,7 +126,6 @@ fi
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'plugins/git', from:oh-my-zsh, if:'which git'
 zplug 'agkozak/zsh-z'
-zplug 'romkatv/powerlevel10k', use:powerlevel10k.zsh-theme
 zplug 'Aloxaf/fzf-tab', defer:1
 zplug 'zsh-users/zsh-autosuggestions', defer:2
 zplug 'zsh-users/zsh-completions', defer:2
@@ -246,27 +238,26 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 #https://github.com/romkatv/powerlevel10k#why-some-prompt-segments-appear-and-disappear-as-im-typing
-function kube-toggle() {
-  if (( ${+POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND} )); then
-    unset POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
-  else
-    POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent'
-  fi
-  p10k reload
-  if zle; then
-    zle push-input
-    zle accept-line
-  fi
-}
-kube-toggle
+# function kube-toggle() {
+#   if (( ${+POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND} )); then
+#     unset POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND
+#   else
+#     POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent'
+#   fi
+#   p10k reload
+#   if zle; then
+#     zle push-input
+#     zle accept-line
+#   fi
+# }
+# kube-toggle
 
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Install navi widget.(Press ctrl+g to launch navi.)
 eval "$(navi widget zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(kubectl completion zsh)
 source ~/.kubectl_fzf.plugin.zsh
 source $HOME/.zsh_plugins/fzf.zsh
+eval "$(starship init zsh)"
