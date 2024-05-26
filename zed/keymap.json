@@ -1,7 +1,55 @@
 [
   {
+    "bindings": {
+      // workspace
+      "ctrl-x o": "workspace::ActivateNextPane",
+      // pane
+      "ctrl-x k": "pane::CloseActiveItem",
+      // menu
+      "ctrl-g": "menu::Cancel",
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-r": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-g": "editor::Cancel",
+      "ctrl-x ctrl-s": "workspace::Save",
+      "ctrl-y": "editor::Paste",
+      "cmd-;": [
+        "editor::ToggleComments",
+        {
+          "advance_downwards": false
+        }
+      ],
+      "cmd-.": "editor::GoToDefinition",
+      "ctrl-c ctrl-d": "editor::Hover",
+      "ctrl-cmd-\\": "editor::Format",
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      // imenu
+      "ctrl-c o": "outline::Toggle",
+      // isearch
+      "ctrl-s": [
+        "buffer_search::Deploy",
+        {
+          "focus": true
+        }
+      ]
+    }
+  },
+  {
     "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting",
     "bindings": {
+      "space space": "command_palette::Toggle",
       "space f s": "workspace::Save",
       "space p t": "workspace::ToggleLeftDock",
       "space p f": "file_finder::Toggle",
@@ -10,6 +58,33 @@
       "space b d": "pane::CloseActiveItem",
       "space b p": "pane::ActivatePrevItem",
       "space b n": "pane::ActivateNextItem"
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-x 2": "pane::SplitDown",
+      "ctrl-x 3": "pane::SplitRight",
+      "cmd-1": [
+        "pane::ActivateItem",
+        0
+      ],
+      "cmd-2": [
+        "pane::ActivateItem",
+        1
+      ],
+      "cmd-3": [
+        "pane::ActivateItem",
+        2
+      ],
+      "cmd-4": [
+        "pane::ActivateItem",
+        3
+      ],
+      "cmd-5": [
+        "pane::ActivateItem",
+        1
+      ],
     }
   }
   // {

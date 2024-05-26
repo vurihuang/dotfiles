@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Catppuccin Mocha",
+  "theme": "Dracula",
   "vim_mode": true,
   "buffer_font_size": 26,
   "buffer_font_family": "CodeNewRoman Nerd Font Mono",
@@ -15,16 +15,31 @@
   "ui_font_family": "CodeNewRoman Nerd Font Mono",
   "cursor_blink": false,
   "format_on_save": "off",
+  "preferred_line_length": 120,
+  "soft_wrap": "preferred_line_length",
   "languages": {
     "Go": {
       "format_on_save": "language_server",
-      "preferred_line_length": 120,
-      "soft_wrap": "preferred_line_length"
     },
     "Rust": {
       "format_on_save": "language_server",
-      "preferred_line_length": 120,
-      "soft_wrap": "preferred_line_length"
+    },
+    "JSON": {
+      "format_on_save": "language_server",
     }
-  }
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/vendor"
+  ],
 }
