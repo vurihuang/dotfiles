@@ -53,5 +53,6 @@
 (package! pbcopy) ;; OS clipboard
 (package! catppuccin-theme)
 (package! all-the-icons)
+
 ;; issue from: https://github.com/doomemacs/doomemacs/issues/7568
 (unpin! apheleia)

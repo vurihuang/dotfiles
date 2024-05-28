@@ -97,7 +97,7 @@
   (doom-themes-org-config)
 
   ;; For now mocha doesn't support font italic, haven't solved.
-  ;; (setq doom-theme 'catppuccin)
+  (setq doom-theme 'doom-tokyo-night)
 
   ;; italics in themes: https://github.com/doomemacs/themes/issues/248
   (set-face-attribute 'font-lock-comment-face nil :foreground "#5B6268" :slant 'italic)
@@ -117,11 +117,11 @@
 
 
 ;; fonts
-(setq doom-font (font-spec :family "Rec Mono Duotone" :size 22)
-      doom-variable-pitch-font (font-spec :family "Rec Mono Duotone" :size 22)
-      doom-symbol-font (font-spec :family "Rec Mono Duotone")
-      doom-serif-font (font-spec :family "Rec Mono Duotone" :size 22 :weight 'light)
-      doom-big-font (font-spec :family "Rec Mono Duotone" :size 24)
+(setq doom-font (font-spec :family "CodeNewRoman Nerd Font Mono" :size 22)
+      doom-variable-pitch-font (font-spec :family "CodeNewRoman Nerd Font Mono" :size 22)
+      doom-symbol-font (font-spec :family "CodeNewRoman Nerd Font Mono")
+      doom-serif-font (font-spec :family "CodeNewRoman Nerd Font Mono" :size 22 :weight 'light)
+      doom-big-font (font-spec :family "CodeNewRoman Nerd Font Mono" :size 24)
       )
 
 ;; Maximize the window on startup.
