@@ -1,13 +1,13 @@
 {
-    "editor.fontSize": 22,
-    "editor.fontFamily": "'UbuntuMonoDerivativePowerline Nerd Font', 'Consolas', 'Hack', 'Consolas NF', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Hack', 'UbuntuMonoDerivativePowerline Nerd Font', 'Consolas', 'Hack', 'Consolas NF', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontWeight": "normal",
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
-    /*"vim.insertModeKeyBindings": [
+    "vim.insertModeKeyBindings": [
         {
             "before": [
                 "j",
@@ -17,7 +17,7 @@
                 "<Esc>"
             ]
         }
-    ],*/
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -44,7 +44,6 @@
         "<C-f>": false
     },
     "workbench.editor.enablePreview": false,
-    "go.formatTool": "goimports",
     "debug.console.fontSize": 14,
     "debug.toolBarLocation": "docked",
     "editor.minimap.enabled": false,
@@ -58,11 +57,10 @@
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "editor.wordWrapColumn": 120,
     "editor.rulers": [
-        80,
         120
     ],
     "workbench.colorCustomizations": {
-        "editorRuler.foreground": "#505050"
+        "editorRuler.foreground": "#505050",
     },
     "explorer.autoReveal": false,
     "leetcode.endpoint": "leetcode-cn",
@@ -96,20 +94,23 @@
     "go.testFlags": [
         "-v"
     ],
+    "go.toolsManagement.autoUpdate": true,
+    "go.formatTool": "goimports",
+    "go.toolsEnvVars": {
+        "GOPROXY": "https://goproxy.io,direct"
+    },
     "protoc": {
-        "options":[
+        "options": [
             "--proto_path=/Users/vuri/go/src"
         ]
     },
-    "go.useLanguageServer": true,
     "[proto3]": {
         "editor.defaultFormatter": "xaver.clang-format",
         "editor.formatOnSave": true
     },
     "workbench.sideBar.location": "left",
-    "workbench.activityBar.visible": true,
     "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Xcode 12 Default Dark",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "powermode.enabled": false,
     "powermode.enableShake": false,
     "vim.cursorStylePerMode.visualblock": "block",
@@ -120,5 +121,15 @@
     },
     "workbench.editor.untitled.hint": "hidden",
     "window.zoomLevel": 1,
-    "extensions.autoUpdate": false
+    "extensions.autoUpdate": false,
+    "http.proxy": "http://localhost:8123",
+    // "vscode-neovim.neovimInitVimPaths.darwin": "/Users/vuri/.config/nvim/init.lua",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "gopls": {
+        "build.experimentalWorkspaceModule": true
+    },
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "workbench.activityBar.visible": false
 }
