@@ -67,23 +67,8 @@ end
 --- Config
 ---------------------------------------------------------------
 local config = {
-	font = wezterm.font("Menlo"),
 	font_size = 24,
-	--freetype_load_target = "Normal",
-	--freetype_render_target = "Normal",
-	--cell_width = 1.1,
-	--line_height = 1.1,
-	-- font_rules = {
-	-- 	{
-	-- 		italic = true,
-	-- 		font = wezterm.font("Cica", { italic = true }),
-	-- 	},
-	-- 	{
-	-- 		italic = true,
-	-- 		intensity = "Bold",
-	-- 		font = wezterm.font("Cica", { weight = "Bold", italic = true }),
-	-- 	},
-	-- },
+	font = wezterm.font("CodeNewRoman Nerd Font Mono"),
 	check_for_updates = true,
 	use_ime = true,
 	ime_preedit_rendering = "Builtin",
@@ -98,7 +83,7 @@ local config = {
 	-- https://github.com/wez/wezterm/issues/1772
 	-- enable_wayland = true,
 	color_scheme = "Catppuccin Mocha",
-	-- color_scheme = "Tokyo Night Moon",
+	-- color_scheme = "Dracula (Official)",
 	-- color_scheme = "cyberpunk",
 	color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
 	hide_tab_bar_if_only_one_tab = true,
@@ -113,6 +98,7 @@ local config = {
 	use_fancy_tab_bar = false,
 	colors = {
 		tab_bar = {
+		    -- hide_tab_bar_if_only_one_tab = true,
 			background = scheme.background,
 			new_tab = { bg_color = "#2e3440", fg_color = scheme.ansi[8], intensity = "Bold" },
 			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
@@ -121,11 +107,14 @@ local config = {
 			-- inactive_tab = { bg_color = scheme.background, fg_color = "#FCE8C3" },
 			-- inactive_tab_hover = { bg_color = scheme.ansi[1], fg_color = "#FCE8C3" },
 		},
+		selection_fg = 'none',
+		selection_bg = 'rgba(50%, 50%, 50%, 50%)',
 	},
 	exit_behavior = "CloseOnCleanExit",
 	tab_bar_at_bottom = false,
 	window_close_confirmation = "AlwaysPrompt",
-	-- window_background_opacity = 0.8,
+	window_background_opacity = 0.96,
+	window_decorations = 'TITLE | RESIZE',
 	-- visual_bell = {
 	-- 	fade_in_function = "EaseIn",
 	-- 	fade_in_duration_ms = 150,
@@ -137,6 +126,56 @@ local config = {
 	leader = { key = "Space", mods = "CTRL|SHIFT" },
 	webgpu_preferred_adapter = gpus[1],
 	front_end = "OpenGL",
+	keys = {
+		{
+			key = "1",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "1"})
+			})
+		},
+		{
+			key = "2",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "2"})
+			})
+		},
+		{
+			key = "3",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "3"})
+			})
+		},
+		{
+			key = "4",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "4"})
+			})
+		},
+		{
+			key = "5",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "5"})
+			})
+		},
+		{
+			key = "6",
+			mods = "CMD",
+			action = wezterm.action.Multiple({
+					wezterm.action.SendKey({mods = "CTRL",key = " "}),
+					wezterm.action.SendKey({key = "6"})
+			})
+		}
+	},
 }
 
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
@@ -147,50 +186,51 @@ for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 	end
 end
 
-config.hyperlink_rules = {
-	-- Matches: a URL in parens: (URL)
-	{
-		regex = "\\((\\w+://\\S+)\\)",
-		format = "$1",
-		highlight = 1,
-	},
-	-- Matches: a URL in brackets: [URL]
-	{
-		regex = "\\[(\\w+://\\S+)\\]",
-		format = "$1",
-		highlight = 1,
-	},
-	-- Matches: a URL in curly braces: {URL}
-	{
-		regex = "\\{(\\w+://\\S+)\\}",
-		format = "$1",
-		highlight = 1,
-	},
-	-- Matches: a URL in angle brackets: <URL>
-	{
-		regex = "<(\\w+://\\S+)>",
-		format = "$1",
-		highlight = 1,
-	},
-	-- Then handle URLs not wrapped in brackets
-	{
-		-- Before
-		--regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
-		--format = '$0',
-		-- After
-		regex = "[^(]\\b(\\w+://\\S+[)/a-zA-Z0-9-]+)",
-		format = "$1",
-		highlight = 1,
-	},
-	-- implicit mailto link
-	{
-		regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
-		format = "mailto:$0",
-	},
-}
-table.insert(config.hyperlink_rules, {
-	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-	format = "https://github.com/$1/$3",
-})
+-- don't like hyperlink in terminal
+-- config.hyperlink_rules = {
+-- 	-- Matches: a URL in parens: (URL)
+-- 	{
+-- 		regex = "\\((\\w+://\\S+)\\)",
+-- 		format = "$1",
+-- 		highlight = 1,
+-- 	},
+-- 	-- Matches: a URL in brackets: [URL]
+-- 	{
+-- 		regex = "\\[(\\w+://\\S+)\\]",
+-- 		format = "$1",
+-- 		highlight = 1,
+-- 	},
+-- 	-- Matches: a URL in curly braces: {URL}
+-- 	{
+-- 		regex = "\\{(\\w+://\\S+)\\}",
+-- 		format = "$1",
+-- 		highlight = 1,
+-- 	},
+-- 	-- Matches: a URL in angle brackets: <URL>
+-- 	{
+-- 		regex = "<(\\w+://\\S+)>",
+-- 		format = "$1",
+-- 		highlight = 1,
+-- 	},
+-- 	-- Then handle URLs not wrapped in brackets
+-- 	{
+-- 		-- Before
+-- 		--regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
+-- 		--format = '$0',
+-- 		-- After
+-- 		regex = "[^(]\\b(\\w+://\\S+[)/a-zA-Z0-9-]+)",
+-- 		format = "$1",
+-- 		highlight = 1,
+-- 	},
+-- 	-- implicit mailto link
+-- 	{
+-- 		regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+-- 		format = "mailto:$0",
+-- 	},
+-- }
+-- table.insert(config.hyperlink_rules, {
+-- 	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+-- 	format = "https://github.com/$1/$3",
+-- }}
 
 return config
