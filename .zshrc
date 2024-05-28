@@ -132,7 +132,8 @@ zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'joshskidmore/zsh-fzf-history-search', defer:2
-zplug jonmosco/kube-ps1, defer:2
+zplug 'plugins/colored-man-pages', from:oh-my-zsh, defer:2
+zplug 'jonmosco/kube-ps1', defer:2
 
 # sindresorhus/pure
 
@@ -261,3 +262,5 @@ source <(kubectl completion zsh)
 source ~/.kubectl_fzf.plugin.zsh
 source $HOME/.zsh_plugins/fzf.zsh
 eval "$(starship init zsh)"
+
+[[ -s "/Users/vuri/.gvm/scripts/gvm" ]] && source "/Users/vuri/.gvm/scripts/gvm"

@@ -49,6 +49,7 @@ alias emacsclient="/Applications/EmacsX.app/Contents/MacOS/bin/emacsclient"
 alias ei="emacs -nw"
 alias emacs-daemon="ei --daemon"
 alias ec="emacsclient -nw"
+alias e="zed"
 
 export PATH="$HOME/dotfiles/doomemacs.d/bin:$PATH"
 
