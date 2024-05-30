@@ -1,3 +1,4 @@
+# Don't write .tmp files: https://github.com/zed-industries/zed/issues/7155
 .tmp*
 conversations
 embeddings

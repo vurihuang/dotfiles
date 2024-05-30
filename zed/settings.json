@@ -7,27 +7,22 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Dracula",
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "theme": "Catppuccin Mocha",
   "vim_mode": true,
-  "buffer_font_size": 26,
+  "buffer_font_size": 24,
   "buffer_font_family": "CodeNewRoman Nerd Font Mono",
   "ui_font_size": 22,
   "ui_font_family": "CodeNewRoman Nerd Font Mono",
   "cursor_blink": false,
   "format_on_save": "off",
   "preferred_line_length": 120,
-  "soft_wrap": "preferred_line_length",
-  "languages": {
-    "Go": {
-      "format_on_save": "language_server",
-    },
-    "Rust": {
-      "format_on_save": "language_server",
-    },
-    "JSON": {
-      "format_on_save": "language_server",
-    }
-  },
+  "soft_wrap": "none",
   "tabs": {
     "git_status": true
   },
@@ -40,6 +35,22 @@
     "**/Thumbs.db",
     "**/.classpath",
     "**/.settings",
-    "**/vendor"
+    "**/vendor",
+    "**/.tmp*"
   ],
+  "copilot": {
+    "disabled_globs": [
+      ".env*"
+    ]
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "proxy": "http://127.0.0.1:1087",
+  "file_types": {
+    "Shell Script": [
+      ".aliases"
+    ]
+  }
 }

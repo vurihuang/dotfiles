@@ -50,6 +50,7 @@ alias ei="emacs -nw"
 alias emacs-daemon="ei --daemon"
 alias ec="emacsclient -nw"
 alias e="zed"
+alias en="zed -n"
 
 export PATH="$HOME/dotfiles/doomemacs.d/bin:$PATH"
 

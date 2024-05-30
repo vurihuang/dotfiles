@@ -1,16 +1,15 @@
 [
   {
     "bindings": {
-      // workspace
+      // 切换面板
       "ctrl-x o": "workspace::ActivateNextPane",
-      // pane
-      "ctrl-x k": "pane::CloseActiveItem",
-      // menu
+      // 取消指令
       "ctrl-g": "menu::Cancel",
     }
   },
   {
     "context": "Workspace",
+    // 文件搜索
     "bindings": {
       "cmd-r": "file_finder::Toggle"
     }
@@ -21,6 +20,7 @@
       "ctrl-g": "editor::Cancel",
       "ctrl-x ctrl-s": "workspace::Save",
       "ctrl-y": "editor::Paste",
+      // lang
       "cmd-;": [
         "editor::ToggleComments",
         {
@@ -29,7 +29,10 @@
       ],
       "cmd-.": "editor::GoToDefinition",
       "ctrl-c ctrl-d": "editor::Hover",
-      "ctrl-cmd-\\": "editor::Format",
+      // format
+      "cmd-shift-f": "editor::Format",
+      // pane
+      "ctrl-x k": "pane::CloseActiveItem",
     }
   },
   {
