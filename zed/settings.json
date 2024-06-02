@@ -15,8 +15,8 @@
   },
   "theme": "Catppuccin Mocha",
   "vim_mode": true,
-  "buffer_font_size": 24,
-  "buffer_font_family": "CodeNewRoman Nerd Font Mono",
+  "buffer_font_size": 22,
+  "buffer_font_family": "Hack Nerd Font",
   "ui_font_size": 22,
   "ui_font_family": "CodeNewRoman Nerd Font Mono",
   "cursor_blink": false,
@@ -39,9 +39,7 @@
     "**/.tmp*"
   ],
   "copilot": {
-    "disabled_globs": [
-      ".env*"
-    ]
+    "disabled_globs": [".env*"]
   },
   "telemetry": {
     "diagnostics": false,
@@ -49,8 +47,12 @@
   },
   "proxy": "http://127.0.0.1:1087",
   "file_types": {
-    "Shell Script": [
-      ".aliases"
-    ]
-  }
+    "Shell Script": [".aliases"]
+  },
+  "vim": {
+    "use_multiline_find": true,
+    "use_smartcase_find": true,
+    "use_system_clipboard": "always"
+  },
+  "autosave": "on_focus_change"
 }
