@@ -1,4 +1,5 @@
 theme = catppuccin-mocha
-font-size = 22
+font-size = 24
 font-family = ComicShannsMono Nerd Font
 cursor-style = block
+shell-integration = fish
