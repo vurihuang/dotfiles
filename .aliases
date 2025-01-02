@@ -4,8 +4,9 @@ export PAGER=bat
 alias r=ranger
 
 # git
-alias gd='git diff'
-alias gdiff='git icdiff'
+# uses the `difftastic` instead
+# alias gd='git diff --word-diff'
+# alias gdiff='git icdiff'
 alias gdh='git diff HEAD^'
 alias gui='gitui'
 
@@ -15,18 +16,18 @@ alias mk='minikube'
 alias proxyd="nohup polipo socksParentProxy=localhost:1086 > /dev/null 2>/var/logs/polipod.error &"
 alias lg='lazygit'
 alias ts='tig status'
-alias c='colima'
 alias matcha="matcha -t -c $HOME/.config/matcha/config.yaml | bat --language md"
 alias fzf='fzf --height=40%'
 alias ls='lsd'
 alias yamlf="bat -l yaml"
+alias c='cargo'
 
-NVIM_PATH="$HOME/soft/nvim-v0.9.1/bin/nvim"
+NVIM_PATH="$HOME/soft/nvim-v0.10.3/bin/nvim"
 
 if type $HOME/soft/nvim/bin/nvim >/dev/null 2>&1; then
-	#alias nvim="$HOME/soft/nvim/bin/nvim"
-	alias nvim=$NVIM_PATH
-	alias vi='nvim'
+  #alias nvim="$HOME/soft/nvim/bin/nvim"
+  alias nvim=$NVIM_PATH
+  alias vi='nvim'
 fi
 
 alias uuid="uuidgen | pbcopy"
@@ -35,11 +36,11 @@ alias nginxd="nginx -p $HOME/workspace/openresty/ -c conf/nginx.conf"
 alias gi='gitui'
 
 function urldecode() {
-	printf "%s" $(echo $1 | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));")
+  printf "%s" $(echo $1 | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));")
 }
 
 function wps() {
-	open -a "/Applications/wpsoffice.app" $1
+  open -a "/Applications/wpsoffice.app" $1
 }
 
 export EDITOR=$NVIM_PATH
@@ -71,3 +72,21 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 
 alias h="navi --path $HOME/workspace/vuri/cheats --print"
+
+alias lc="leetcode"
+alias ze="zellij"
+alias python=python3
+alias pip=pip3
+alias crun="cargo run"
+alias v="hx"
+alias rust-analyzer="$HOME/.local/bin/rust-analyzer"
+
+# Use `y` function instead of `yazi`, to provides the ability to change the current working directory.
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}

@@ -1,0 +1,4 @@
+theme = catppuccin-mocha
+font-size = 22
+font-family = ComicShannsMono Nerd Font
+cursor-style = block

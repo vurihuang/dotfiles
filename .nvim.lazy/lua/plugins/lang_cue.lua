@@ -1,3 +1,0 @@
-return {
-  { "jjo/vim-cue" },
-}

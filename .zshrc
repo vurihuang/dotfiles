@@ -264,3 +264,9 @@ source $HOME/.zsh_plugins/fzf.zsh
 eval "$(starship init zsh)"
 
 [[ -s "/Users/vuri/.gvm/scripts/gvm" ]] && source "/Users/vuri/.gvm/scripts/gvm"
+
+# Created by `pipx` on 2024-07-19 17:07:05
+export PATH="$PATH:/Users/vuri/.local/bin"
+
+# Added by Windsurf
+export PATH="/Users/vuri/.codeium/windsurf/bin:$PATH"
