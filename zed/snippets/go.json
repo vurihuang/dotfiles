@@ -1,0 +1,9 @@
+{
+  "Implement me": {
+    "prefix": "impl",
+    "body": [
+      "panic(\"Implement me\")"
+    ],
+    "description": "Add a panic with a message to implement the function"
+  }
+}

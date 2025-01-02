@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 source $XDG_CONFIG_HOME/fish/aliases.fish
+source $XDG_CONFIG_HOME/fish/ui.fish
 
 set privaterc_path "$XDG_CONFIG_HOME/fish/privaterc.fish"
 if test -e "$privaterc_path"
@@ -10,3 +11,4 @@ if test -e "$privaterc_path"
 end
 
 starship init fish | source
+zoxide init fish | source

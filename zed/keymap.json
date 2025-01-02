@@ -4,7 +4,9 @@
       // 切换面板
       "ctrl-x o": "workspace::ActivateNextPane",
       // 取消指令
-      "ctrl-g": "menu::Cancel"
+      "ctrl-g": "menu::Cancel",
+      "ctrl-k": "editor::CutToEndOfLine",
+      "cmd-.": "editor::ToggleCodeActions"
     }
   },
   {
@@ -30,12 +32,13 @@
         }
       ],
       "ctrl-c g": "editor::GoToDiagnostic",
-      "cmd-.": "editor::GoToDefinition",
+      // "cmd-.": "editor::GoToDefinition",
       "ctrl-c ctrl-d": "editor::Hover",
       // format
       "cmd-shift-f": "editor::Format",
       // pane
-      "ctrl-x k": "pane::CloseActiveItem"
+      "ctrl-x k": "pane::CloseAllItems",
+      "cmd-enter": "assistant::InlineAssist"
     }
   },
   {
@@ -53,6 +56,12 @@
     }
   },
   {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-o": "outline::Toggle"
+    }
+  },
+  {
     "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting",
     "bindings": {
       "space space": "command_palette::Toggle",
@@ -65,6 +74,13 @@
       "space b p": "pane::ActivatePrevItem",
       "space b n": "pane::ActivateNextItem",
       "H": "editor::Hover"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // z commands
+      "z z": "workspace::ToggleZoom"
     }
   },
   {

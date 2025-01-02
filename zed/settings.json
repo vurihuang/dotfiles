@@ -2,11 +2,17 @@
 //
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
+// // To see all of Zed's default settings without changing your
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
+    },
+    "version": "2"
+  },
   "collaboration_panel": {
     "dock": "right"
   },
@@ -16,13 +22,13 @@
   "theme": "Catppuccin Mocha",
   "vim_mode": true,
   "buffer_font_size": 22,
-  "buffer_font_family": "Hack Nerd Font",
+  "buffer_font_family": "Hack",
   "ui_font_size": 22,
-  "ui_font_family": "CodeNewRoman Nerd Font Mono",
+  "ui_font_family": "Hack Nerd Font",
   "cursor_blink": false,
   "format_on_save": "off",
   "preferred_line_length": 120,
-  "soft_wrap": "none",
+  "soft_wrap": "editor_width",
   "tabs": {
     "git_status": true
   },
@@ -36,7 +42,8 @@
     "**/.classpath",
     "**/.settings",
     "**/vendor",
-    "**/.tmp*"
+    "**/.tmp*",
+    "**/target"
   ],
   "copilot": {
     "disabled_globs": [".env*"]
@@ -47,12 +54,28 @@
   },
   "proxy": "http://127.0.0.1:1087",
   "file_types": {
-    "Shell Script": [".aliases"]
+    "Shell Script": [".aliases", ".env.*", ".privaterc", "*rc"]
   },
   "vim": {
     "use_multiline_find": true,
     "use_smartcase_find": true,
     "use_system_clipboard": "always"
   },
-  "autosave": "on_focus_change"
+  "autosave": "off",
+  "terminal": {
+    "font_family": "Hack Nerd Font",
+    "font_size": 18
+  },
+  "outline_panel": {
+    "dock": "right",
+    "default_width": 350
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path": "/Users/vuri/.local/bin/rust-analyzer",
+        "args": []
+      }
+    }
+  }
 }

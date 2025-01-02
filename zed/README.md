@@ -9,6 +9,6 @@ brew install --cask zed
 ## Configure
 
 ```shell
-mv ~/.config/zed ~/dotfiles/zed
-ln -sf $HOME/dotfiles/zed $HOME/.config/zed
+rm -rf ~/.config/zed
+git clone https://github.com/vurihuang/zed.config.git ~/.config/zed
 ```
