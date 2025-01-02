@@ -1,12 +1,13 @@
 {
-    "editor.fontSize": 18,
-    "editor.fontFamily": "'Hack', 'UbuntuMonoDerivativePowerline Nerd Font', 'Consolas', 'Hack', 'Consolas NF', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 17,
+    "editor.fontFamily": "'Hack', 'Chalkboard SE', 'Cascadia Code NF SemiLight', 'UbuntuMonoDerivativePowerline Nerd Font', 'Consolas', 'Hack', 'Consolas NF', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontWeight": "normal",
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "editor.lineHeight": 1.6,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -16,7 +17,15 @@
             "after": [
                 "<Esc>"
             ]
-        }
+        },
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "commands": [
+                "cursorLineEnd"
+            ]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -44,7 +53,7 @@
         "<C-f>": false
     },
     "workbench.editor.enablePreview": false,
-    "debug.console.fontSize": 14,
+    "debug.console.fontSize": 16,
     "debug.toolBarLocation": "docked",
     "editor.minimap.enabled": false,
     "files.exclude": {
@@ -54,24 +63,23 @@
         "**/node_modules": true,
         "**/py": true,
     },
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.iconTheme": "material-icon-theme",
     "editor.wordWrapColumn": 120,
     "editor.rulers": [
         120
     ],
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#505050",
+        "workbench.colorCustomizations": {}
     },
     "explorer.autoReveal": false,
     "leetcode.endpoint": "leetcode-cn",
     "leetcode.workspaceFolder": "/Users/vuri/.leetcode",
     "leetcode.defaultLanguage": "golang",
     "leetcode.hint.configWebviewMarkdown": false,
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.fontSize": 15,
-    "[markdown]": {
-        "editor.defaultFormatter": "AnmolSinghJaggi.vscode-markdownfmt"
-    },
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.external.osxExec": "WezTerm.app",
+    "terminal.integrated.fontSize": 16,
     "workbench.editor.closeEmptyGroups": false,
     "explorer.confirmDragAndDrop": false,
     "files.autoSave": "off",
@@ -110,26 +118,50 @@
     },
     "workbench.sideBar.location": "left",
     "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "powermode.enabled": false,
     "powermode.enableShake": false,
     "vim.cursorStylePerMode.visualblock": "block",
     "vim.cursorStylePerMode.visualline": "block",
-    "editor.cursorStyle": "block",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "workbench.editor.untitled.hint": "hidden",
+    "editor.cursorStyle": "line",
     "window.zoomLevel": 1,
     "extensions.autoUpdate": false,
-    "http.proxy": "http://localhost:8123",
-    // "vscode-neovim.neovimInitVimPaths.darwin": "/Users/vuri/.config/nvim/init.lua",
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "gopls": {
-        "build.experimentalWorkspaceModule": true
-    },
+    "http.proxy": "http://localhost:1087",
+    "gopls": {},
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
     },
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.location": "top",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.startupEditor": "none",
+    "editor.fontLigatures": true,
+    "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+    "workbench.settings.editor": "json",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.extraArgs": [
+        "--",
+        "-D",
+        "warnings",
+        "-A",
+        "unused"
+    ],
+    "rust-analyzer.checkOnSave": true,
+    "rust-analyzer.lens.enable": false,
+    "explorer.confirmDelete": false,
+    "commitollama.custom.endpoint": "http://ollama.xiaoe-tools.com",
+    "commitollama.custom.model": "glm4:latest",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "todo!()"
+    ],
+    "mermaid-editor.generate.type": "png",
+    "workbench.colorTheme": "Best Themes - Catppuccin",
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
 }
